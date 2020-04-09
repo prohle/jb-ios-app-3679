@@ -1,0 +1,6 @@
+framework module Pods_JouleBookUI_JouleBookUIUITests {
+  umbrella header "Pods-JouleBookUI-JouleBookUIUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

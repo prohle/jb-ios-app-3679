@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "ClockTimePicker",
+        "repositoryURL": "https://github.com/workingDog/ClockTimePicker.git",
+        "state": {
+          "branch": null,
+          "revision": "ae52aa5a2ba15436049faec86d45c9de03294581",
+          "version": "1.0.3"
+        }
+      },
+      {
+        "package": "URLImage",
+        "repositoryURL": "https://github.com/dmytro-anokhin/url-image.git",
+        "state": {
+          "branch": null,
+          "revision": "dc913391b6fc0c9de283ef111eb90d0e9abf4c36",
+          "version": "0.9.10"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

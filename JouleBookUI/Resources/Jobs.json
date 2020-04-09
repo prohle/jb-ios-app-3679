@@ -1,0 +1,122 @@
+[
+    {
+        "name": "Turtle Rock",
+        "category": 3,
+        "id": 1001,
+        "coordinates": {
+            "longitude": -116.166868,
+            "latitude": 34.011286
+        },
+        "imageName": "https://i-vnexpress.vnecdn.net/2020/02/13/138778839-15815524778791n-1581-9227-8284-1581587337_500x300.jpg"
+    },
+    {
+        "name": "Silver Salmon Creek",
+        "category": 3,
+        "id": 4,
+        "coordinates": {
+            "longitude": -152.665167,
+            "latitude": 59.980167
+        },
+        "imageName": "https://i-vnexpress.vnecdn.net/2020/02/13/138778839-15815524778791n-1581-9227-8284-1581587337_500x300.jpg"
+    },
+    {
+        "name": "Chilkoot Trail",
+        "category": 3,
+        "id": 5,
+        "coordinates": {
+            "longitude": -135.334571,
+            "latitude": 59.560551
+        },
+        "imageName": "https://i-vnexpress.vnecdn.net/2020/02/13/138778839-15815524778791n-1581-9227-8284-1581587337_500x300.jpg"
+    },
+    {
+        "name": "St. Mary Lake",
+        "category": 3,
+        "id": 8,
+        "coordinates": {
+            "longitude": -113.536248,
+            "latitude": 48.69423
+        },
+        "imageName": "https://i-vnexpress.vnecdn.net/2020/02/13/138778839-15815524778791n-1581-9227-8284-1581587337_500x300.jpg"
+    },
+    {
+        "name": "Twin Lake",
+        "category": 3,
+        "id": 11,
+        "coordinates": {
+            "longitude": -153.849883,
+            "latitude": 60.641684
+        },
+        "imageName": "https://i-vnexpress.vnecdn.net/2020/02/13/138778839-15815524778791n-1581-9227-8284-1581587337_500x300.jpg"
+    },
+    {
+        "name": "Lake McDonald",
+        "category": 3,
+        "id": 6,
+        "coordinates": {
+            "longitude": -113.934831,
+            "latitude": 48.56002
+        },
+        "imageName": "https://i-vnexpress.vnecdn.net/2020/02/13/138778839-15815524778791n-1581-9227-8284-1581587337_500x300.jpg"
+    },
+    {
+        "name": "Charley Rivers",
+        "category": 3,
+        "id": 1,
+        "coordinates": {
+            "longitude": -143.122586,
+            "latitude": 65.350021
+        },
+        "imageName": "https://i-vnexpress.vnecdn.net/2020/02/13/138778839-15815524778791n-1581-9227-8284-1581587337_500x300.jpg"
+    },
+    {
+        "name": "Icy Bay",
+        "category": 3,
+        "id": 2,
+        "coordinates": {
+            "longitude": -141.518167,
+            "latitude": 60.089917
+        },
+        "imageName": "https://i-vnexpress.vnecdn.net/2020/02/13/138778839-15815524778791n-1581-9227-8284-1581587337_500x300.jpg"
+    },
+    {
+        "name": "Rainbow Lake",
+        "category": 3,
+        "id": 3,
+        "coordinates": {
+            "longitude": -150.086103,
+            "latitude": 61.694334
+        },
+        "imageName": "https://i-vnexpress.vnecdn.net/2020/02/13/138778839-15815524778791n-1581-9227-8284-1581587337_500x300.jpg"
+    },
+    {
+        "name": "Hidden Lake",
+        "category":3,
+        "id": 7,
+        "coordinates": {
+            "longitude": -121.17799,
+            "latitude": 48.495442
+        },
+        "imageName": "https://i-vnexpress.vnecdn.net/2020/02/13/138778839-15815524778791n-1581-9227-8284-1581587337_500x300.jpg"
+    },
+    {
+        "name": "Chincoteague",
+        "category": 3,
+        "id": 9,
+        "coordinates": {
+            "longitude": -75.383212,
+            "latitude": 37.91531
+        },
+        "imageName": "https://i-vnexpress.vnecdn.net/2020/02/13/138778839-15815524778791n-1581-9227-8284-1581587337_500x300.jpg"
+    },
+    {
+        "name": "Lake Umbagog",
+        "category": 3,
+        "id": 10,
+        "coordinates": {
+            "longitude": -71.056816,
+            "latitude": 44.747408
+        },
+        "imageName": "https://i-vnexpress.vnecdn.net/2020/02/13/138778839-15815524778791n-1581-9227-8284-1581587337_500x300.jpg"
+    }
+]
