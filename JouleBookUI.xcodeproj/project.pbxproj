@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1100E39ED90C4773F7B05C27 /* Pods_JouleBookUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CE99E8ADD1B8CDF12854F29 /* Pods_JouleBookUITests.framework */; };
 		2C06ECAC23F6AC4300EDC750 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C06ECAB23F6AC4300EDC750 /* SignUp.swift */; };
 		2C06ECAE23F6AD4000EDC750 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C06ECAD23F6AD4000EDC750 /* UserView.swift */; };
 		2C49809F23ED0A8100F2FB33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C49809E23ED0A8100F2FB33 /* AppDelegate.swift */; };
@@ -21,76 +22,40 @@
 		2CC355C023F4EFF4003C7FE4 /* DealJsonDatas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC355BF23F4EFF4003C7FE4 /* DealJsonDatas.swift */; };
 		2CC355C323F56544003C7FE4 /* DealList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC355C223F56544003C7FE4 /* DealList.swift */; };
 		2CD0599B23ED47C80031D99D /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD0599A23ED47C80031D99D /* CircleImage.swift */; };
+		2CD0599F23ED5A0D0031D99D /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD0599E23ED5A0D0031D99D /* MapView.swift */; };
 		2CF5AEBF23EEC09A0049A940 /* ItemDealListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF5AEBE23EEC09A0049A940 /* ItemDealListRow.swift */; };
-		B083C2C09BECE26416BFEB87 /* Pods_JouleBookUI_JouleBookUIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B703F353D927FB42D46915A /* Pods_JouleBookUI_JouleBookUIUITests.framework */; };
+		55FAC427CF4B0531DAB012FD /* Pods_JouleBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6767B89603A5EA9D940D7453 /* Pods_JouleBookUI.framework */; };
+		B238F15F1C3DF319A496B7E0 /* Pods_JouleBookUI_JouleBookUIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C17021A35C70F92CA1B9B177 /* Pods_JouleBookUI_JouleBookUIUITests.framework */; };
 		BF025AFE23FFE04800BAF9A4 /* PhoneVerification.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF025AFD23FFE04800BAF9A4 /* PhoneVerification.swift */; };
 		BF025B022400E4EB00BAF9A4 /* SmallTextLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF025B012400E4EB00BAF9A4 /* SmallTextLink.swift */; };
 		BF025B0724010E5800BAF9A4 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF025B0624010E5800BAF9A4 /* PageViewController.swift */; };
 		BF025B0924010E9E00BAF9A4 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF025B0824010E9E00BAF9A4 /* PageControl.swift */; };
 		BF025B0B24010F5300BAF9A4 /* SubSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF025B0A24010F5300BAF9A4 /* SubSliderView.swift */; };
 		BF025B0D24010FDB00BAF9A4 /* Welcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF025B0C24010FDB00BAF9A4 /* Welcome.swift */; };
-		BF041CD32443254E00013957 /* LocationUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF041CD22443254E00013957 /* LocationUpdate.swift */; };
-		BF041CD52444376300013957 /* MarkerInfoWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF041CD42444376300013957 /* MarkerInfoWindow.swift */; };
-		BF0F2DF52445A123004E0C64 /* MyAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0F2DF42445A123004E0C64 /* MyAddress.swift */; };
-		BF0F2DF72445A1AF004E0C64 /* AddressObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0F2DF62445A1AF004E0C64 /* AddressObj.swift */; };
-		BF0F2DF92445C185004E0C64 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0F2DF82445C185004E0C64 /* APIRouter.swift */; };
-		BF0F2DFB2445C26B004E0C64 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0F2DFA2445C26B004E0C64 /* Networking.swift */; };
-		BF0F2DFD2445CAD4004E0C64 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0F2DFC2445CAD4004E0C64 /* APIClient.swift */; };
-		BF0F2DFF24461C6C004E0C64 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0F2DFE24461C6C004E0C64 /* Test.swift */; };
 		BF109394241E2AE500EC7B9A /* FormattedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF109393241E2AE500EC7B9A /* FormattedTextField.swift */; };
-		BF11E3B92461C4B3009E3E26 /* BankAccountsCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF11E3B82461C4B1009E3E26 /* BankAccountsCards.swift */; };
-		BF11E3BB2461C562009E3E26 /* BankAccountObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF11E3BA2461C562009E3E26 /* BankAccountObj.swift */; };
-		BF11E3BD2461C575009E3E26 /* CardObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF11E3BC2461C575009E3E26 /* CardObj.swift */; };
-		BF11E3BF24625580009E3E26 /* CreateCreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF11E3BE2462557E009E3E26 /* CreateCreditCard.swift */; };
 		BF16B91124014097005CEE07 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF16B91024014097005CEE07 /* MainMenu.swift */; };
 		BF16B913240142CC005CEE07 /* IconText.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF16B912240142CC005CEE07 /* IconText.swift */; };
-		BF17991B2453FD5900A15C38 /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF17991A2453FD5900A15C38 /* Slider.swift */; };
-		BF17991E245424DF00A15C38 /* TitleBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF17991D245424DF00A15C38 /* TitleBlock.swift */; };
-		BF179920245432FB00A15C38 /* Informations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF17991F245432FB00A15C38 /* Informations.swift */; };
-		BF2384EE2452D56600832B2A /* Insurances.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2384ED2452D56600832B2A /* Insurances.swift */; };
-		BF2384F12452EEB900832B2A /* TopReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2384F02452EEB900832B2A /* TopReport.swift */; };
-		BF2384F3245306DA00832B2A /* fiveicons.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2384F2245306DA00832B2A /* fiveicons.swift */; };
-		BF2384F524532D8400832B2A /* InstantHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2384F424532D8400832B2A /* InstantHelp.swift */; };
-		BF252069244848A1000E2AB9 /* AppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF252068244848A1000E2AB9 /* AppUtils.swift */; };
-		BF25206B2448C6F1000E2AB9 /* CheckboxField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF25206A2448C6F1000E2AB9 /* CheckboxField.swift */; };
-		BF25206D2448D8D9000E2AB9 /* DealObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF25206C2448D8D9000E2AB9 /* DealObservable.swift */; };
-		BF2624BC2459698A00D7D9F1 /* ChatUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2624BB2459698A00D7D9F1 /* ChatUI.swift */; };
-		BF2624BE2459A01B00D7D9F1 /* BookDeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2624BD2459A01B00D7D9F1 /* BookDeal.swift */; };
-		BF2624C02459A6CD00D7D9F1 /* GetDeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2624BF2459A6CD00D7D9F1 /* GetDeal.swift */; };
-		BF2624C2245AED7900D7D9F1 /* TrackableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2624C1245AED7900D7D9F1 /* TrackableScrollView.swift */; };
-		BF2624C4245AEDB500D7D9F1 /* ScrollOffsetPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2624C3245AEDB500D7D9F1 /* ScrollOffsetPreferenceKey.swift */; };
-		BF2B08D0244098DC007575C8 /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		BF334CBA24123E5C009B3218 /* MyAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF334CB924123E5C009B3218 /* MyAccount.swift */; };
 		BF334CBE241247C7009B3218 /* MyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF334CBD241247C7009B3218 /* MyProfile.swift */; };
 		BF3535B02418827A001EE48C /* AddImageBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3535AF2418827A001EE48C /* AddImageBtn.swift */; };
-		BF3B83A7244FE207005EFB15 /* CreateNewAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3B83A6244FE207005EFB15 /* CreateNewAddress.swift */; };
-		BF3B83AB244FEA3B005EFB15 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3B83AA244FEA3B005EFB15 /* RadioButton.swift */; };
 		BF3DFD82241F6EB2004EFDFC /* ClockTimePicker in Frameworks */ = {isa = PBXBuildFile; productRef = BF3DFD81241F6EB2004EFDFC /* ClockTimePicker */; };
-		BF43A119244D99AC00F32ECF /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF43A118244D99AC00F32ECF /* View.swift */; };
-		BF43A11C244D9C4D00F32ECF /* AMPopTip in Frameworks */ = {isa = PBXBuildFile; productRef = BF43A11B244D9C4D00F32ECF /* AMPopTip */; };
 		BF48073124284ADF003598C5 /* Vehicles.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF48073024284ADF003598C5 /* Vehicles.swift */; };
 		BF496FE72411195E00048EAB /* AccountMenus.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF496FE62411195E00048EAB /* AccountMenus.swift */; };
 		BF524FF324247EEF0063AE01 /* CandidateItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF524FF224247EEF0063AE01 /* CandidateItemRow.swift */; };
 		BF524FF524247F1B0063AE01 /* Candidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF524FF424247F1B0063AE01 /* Candidate.swift */; };
 		BF524FF724251AB70063AE01 /* Texts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF524FF624251AB70063AE01 /* Texts.swift */; };
-		BF542F532464C81000186B05 /* CreateConnectAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF542F522464C81000186B05 /* CreateConnectAccount.swift */; };
-		BF542F552465622B00186B05 /* ForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF542F542465622B00186B05 /* ForgotPassword.swift */; };
-		BF542F572465AA2D00186B05 /* QuantityBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF542F562465AA2D00186B05 /* QuantityBox.swift */; };
-		BF5ABF502441C40100B34657 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5ABF4F2441C40100B34657 /* MapView.swift */; };
-		BF5ABF522441C44400B34657 /* LandmarkAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5ABF512441C44400B34657 /* LandmarkAnnotation.swift */; };
-		BF5ABF542441C4A600B34657 /* MapViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5ABF532441C4A600B34657 /* MapViewCoordinator.swift */; };
 		BF5D512423FA366C00D7048B /* Deal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5D512323FA366C00D7048B /* Deal.swift */; };
 		BF5D512623FA36DA00D7048B /* DealDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5D512523FA36DA00D7048B /* DealDetail.swift */; };
-		BF5D512823FA6E4300D7048B /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		BF5D512823FA6E4300D7048B /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BF60DCAC241BD75E00F86FE8 /* AddLicenseForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF60DCAB241BD75E00F86FE8 /* AddLicenseForm.swift */; };
 		BF60DCAE241BD91900F86FE8 /* AddVehicleForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF60DCAD241BD91900F86FE8 /* AddVehicleForm.swift */; };
 		BF60DCB0241BDBD400F86FE8 /* AddInsuranceForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF60DCAF241BDBD400F86FE8 /* AddInsuranceForm.swift */; };
+		BF60DCB2241BE6AE00F86FE8 /* VehicleItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF60DCB1241BE6AE00F86FE8 /* VehicleItemRow.swift */; };
+		BF60DCB4241BE89900F86FE8 /* InsuranceItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF60DCB3241BE89900F86FE8 /* InsuranceItemRow.swift */; };
 		BF60DCB6241BF6B900F86FE8 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF60DCB5241BF6B900F86FE8 /* BottomSheetView.swift */; };
-		BF683FC9245720CA00A10215 /* TagListViewOnly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF683FC8245720CA00A10215 /* TagListViewOnly.swift */; };
 		BF75D2AB24179DB8005048B4 /* EditSkills.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF75D2AA24179DB8005048B4 /* EditSkills.swift */; };
 		BF75D2AD2417A324005048B4 /* Licenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF75D2AC2417A324005048B4 /* Licenses.swift */; };
-		BF77D4A22458305000D4EF68 /* CommentUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF77D4A12458305000D4EF68 /* CommentUI.swift */; };
-		BF77D4A42458346100D4EF68 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF77D4A32458346100D4EF68 /* Comment.swift */; };
+		BF75D2AF2417A353005048B4 /* LicenseItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF75D2AE2417A353005048B4 /* LicenseItemRow.swift */; };
 		BF7ED189240B76FC00788A6D /* StaticStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7ED188240B76FC00788A6D /* StaticStrings.swift */; };
 		BF84F2EE2406644600F75839 /* ItemJobListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84F2ED2406644600F75839 /* ItemJobListRow.swift */; };
 		BF84F2F02406646700F75839 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF84F2EF2406646700F75839 /* Job.swift */; };
@@ -134,7 +99,6 @@
 		BFDB8D6E241C904B00620B5E /* AddJobForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDB8D6D241C904B00620B5E /* AddJobForm.swift */; };
 		BFDB8D70241CF3C200620B5E /* DateTimeOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDB8D6F241CF3C200620B5E /* DateTimeOptions.swift */; };
 		BFDB8D72241D1A1800620B5E /* TimeSlots.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDB8D71241D1A1800620B5E /* TimeSlots.swift */; };
-		BFDC8D5424408BE500B03F6C /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		BFEF59A724207B7E00762AE5 /* TimeOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEF59A624207B7E00762AE5 /* TimeOptions.swift */; };
 		BFEF59B02420D6F400762AE5 /* RKDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEF59A92420D6F300762AE5 /* RKDate.swift */; };
 		BFEF59B12420D6F400762AE5 /* RKMonth.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEF59AA2420D6F400762AE5 /* RKMonth.swift */; };
@@ -144,11 +108,6 @@
 		BFEF59B52420D6F400762AE5 /* RKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEF59AE2420D6F400762AE5 /* RKManager.swift */; };
 		BFEF59B62420D6F400762AE5 /* RKWeekdayHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEF59AF2420D6F400762AE5 /* RKWeekdayHeader.swift */; };
 		BFEF59BA2420DDB200762AE5 /* DateSelectorModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEF59B92420DDB200762AE5 /* DateSelectorModal.swift */; };
-		BFF60F9A24406AF500B120ED /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = BFF60F9924406AF500B120ED /* KeychainAccess */; };
-		BFF60FA224406D4400B120ED /* Mantis in Frameworks */ = {isa = PBXBuildFile; productRef = BFF60FA124406D4400B120ED /* Mantis */; };
-		BFF60FA724406FEE00B120ED /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		C2305C60B9B0F0A6048F3EAB /* Pods_JouleBookUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB7FD87CCC8BE917ECE9DCC2 /* Pods_JouleBookUITests.framework */; };
-		EB2C982ED802FFF579C9933D /* Pods_JouleBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98CBABCA37A90C982C6A13AE /* Pods_JouleBookUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,10 +134,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				BF2B08D0244098DC007575C8 /* (null) in Embed Frameworks */,
 				BF5D512823FA6E4300D7048B /* (null) in Embed Frameworks */,
-				BFDC8D5424408BE500B03F6C /* (null) in Embed Frameworks */,
-				BFF60FA724406FEE00B120ED /* (null) in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -186,10 +142,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0B703F353D927FB42D46915A /* Pods_JouleBookUI_JouleBookUIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JouleBookUI_JouleBookUIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		12A0A4F74FFEE70E03998D14 /* Pods-JouleBookUI-JouleBookUIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JouleBookUI-JouleBookUIUITests.debug.xcconfig"; path = "Target Support Files/Pods-JouleBookUI-JouleBookUIUITests/Pods-JouleBookUI-JouleBookUIUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		168071E6FD3AE0C747D32F37 /* Pods-JouleBookUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JouleBookUITests.debug.xcconfig"; path = "Target Support Files/Pods-JouleBookUITests/Pods-JouleBookUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		1C6D2F49FD2F656F64482C99 /* Pods-JouleBookUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JouleBookUI.debug.xcconfig"; path = "Target Support Files/Pods-JouleBookUI/Pods-JouleBookUI.debug.xcconfig"; sourceTree = "<group>"; };
 		2C06ECAB23F6AC4300EDC750 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		2C06ECAD23F6AD4000EDC750 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
-		2C49809B23ED0A8100F2FB33 /* JouleBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JouleBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C49809B23ED0A8100F2FB33 /* JouleBookUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JouleBookUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C49809E23ED0A8100F2FB33 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C4980A023ED0A8100F2FB33 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2C4980A223ED0A8100F2FB33 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -206,77 +164,39 @@
 		2CC355BF23F4EFF4003C7FE4 /* DealJsonDatas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealJsonDatas.swift; sourceTree = "<group>"; };
 		2CC355C223F56544003C7FE4 /* DealList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealList.swift; sourceTree = "<group>"; };
 		2CD0599A23ED47C80031D99D /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		2CD0599E23ED5A0D0031D99D /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		2CF5AEBE23EEC09A0049A940 /* ItemDealListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDealListRow.swift; sourceTree = "<group>"; };
-		3A35749502D7461A8ADC0EBC /* Pods-JouleBookUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JouleBookUITests.release.xcconfig"; path = "Target Support Files/Pods-JouleBookUITests/Pods-JouleBookUITests.release.xcconfig"; sourceTree = "<group>"; };
-		4E3689B6E690F249306120F1 /* Pods-JouleBookUI-JouleBookUIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JouleBookUI-JouleBookUIUITests.debug.xcconfig"; path = "Target Support Files/Pods-JouleBookUI-JouleBookUIUITests/Pods-JouleBookUI-JouleBookUIUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		59416D6EC2B6F47E9F5B0587 /* Pods-JouleBookUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JouleBookUITests.debug.xcconfig"; path = "Target Support Files/Pods-JouleBookUITests/Pods-JouleBookUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		8F6FDC75B4C3C8E744759ED6 /* Pods-JouleBookUI-JouleBookUIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JouleBookUI-JouleBookUIUITests.release.xcconfig"; path = "Target Support Files/Pods-JouleBookUI-JouleBookUIUITests/Pods-JouleBookUI-JouleBookUIUITests.release.xcconfig"; sourceTree = "<group>"; };
-		98CBABCA37A90C982C6A13AE /* Pods_JouleBookUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JouleBookUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AB8BD3861F53850F54EC2FBB /* Pods-JouleBookUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JouleBookUI.debug.xcconfig"; path = "Target Support Files/Pods-JouleBookUI/Pods-JouleBookUI.debug.xcconfig"; sourceTree = "<group>"; };
+		6767B89603A5EA9D940D7453 /* Pods_JouleBookUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JouleBookUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FD803C3670244D865D0AB8E /* Pods-JouleBookUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JouleBookUI.release.xcconfig"; path = "Target Support Files/Pods-JouleBookUI/Pods-JouleBookUI.release.xcconfig"; sourceTree = "<group>"; };
+		9CE99E8ADD1B8CDF12854F29 /* Pods_JouleBookUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JouleBookUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF025AFD23FFE04800BAF9A4 /* PhoneVerification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerification.swift; sourceTree = "<group>"; };
 		BF025B012400E4EB00BAF9A4 /* SmallTextLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallTextLink.swift; sourceTree = "<group>"; };
 		BF025B0624010E5800BAF9A4 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		BF025B0824010E9E00BAF9A4 /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
 		BF025B0A24010F5300BAF9A4 /* SubSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubSliderView.swift; sourceTree = "<group>"; };
 		BF025B0C24010FDB00BAF9A4 /* Welcome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Welcome.swift; sourceTree = "<group>"; };
-		BF041CD22443254E00013957 /* LocationUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUpdate.swift; sourceTree = "<group>"; };
-		BF041CD42444376300013957 /* MarkerInfoWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerInfoWindow.swift; sourceTree = "<group>"; };
-		BF0F2DF42445A123004E0C64 /* MyAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAddress.swift; sourceTree = "<group>"; };
-		BF0F2DF62445A1AF004E0C64 /* AddressObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressObj.swift; sourceTree = "<group>"; };
-		BF0F2DF82445C185004E0C64 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
-		BF0F2DFA2445C26B004E0C64 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
-		BF0F2DFC2445CAD4004E0C64 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
-		BF0F2DFE24461C6C004E0C64 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		BF109393241E2AE500EC7B9A /* FormattedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattedTextField.swift; sourceTree = "<group>"; };
-		BF11E3B82461C4B1009E3E26 /* BankAccountsCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountsCards.swift; sourceTree = "<group>"; };
-		BF11E3BA2461C562009E3E26 /* BankAccountObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountObj.swift; sourceTree = "<group>"; };
-		BF11E3BC2461C575009E3E26 /* CardObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardObj.swift; sourceTree = "<group>"; };
-		BF11E3BE2462557E009E3E26 /* CreateCreditCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCreditCard.swift; sourceTree = "<group>"; };
 		BF16B91024014097005CEE07 /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
 		BF16B912240142CC005CEE07 /* IconText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconText.swift; sourceTree = "<group>"; };
-		BF17991A2453FD5900A15C38 /* Slider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slider.swift; sourceTree = "<group>"; };
-		BF17991D245424DF00A15C38 /* TitleBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleBlock.swift; sourceTree = "<group>"; };
-		BF17991F245432FB00A15C38 /* Informations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Informations.swift; sourceTree = "<group>"; };
-		BF2384ED2452D56600832B2A /* Insurances.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Insurances.swift; sourceTree = "<group>"; };
-		BF2384F02452EEB900832B2A /* TopReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopReport.swift; sourceTree = "<group>"; };
-		BF2384F2245306DA00832B2A /* fiveicons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fiveicons.swift; sourceTree = "<group>"; };
-		BF2384F424532D8400832B2A /* InstantHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstantHelp.swift; sourceTree = "<group>"; };
-		BF252068244848A1000E2AB9 /* AppUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtils.swift; sourceTree = "<group>"; };
-		BF25206A2448C6F1000E2AB9 /* CheckboxField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxField.swift; sourceTree = "<group>"; };
-		BF25206C2448D8D9000E2AB9 /* DealObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealObservable.swift; sourceTree = "<group>"; };
-		BF2624BB2459698A00D7D9F1 /* ChatUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUI.swift; sourceTree = "<group>"; };
-		BF2624BD2459A01B00D7D9F1 /* BookDeal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDeal.swift; sourceTree = "<group>"; };
-		BF2624BF2459A6CD00D7D9F1 /* GetDeal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDeal.swift; sourceTree = "<group>"; };
-		BF2624C1245AED7900D7D9F1 /* TrackableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackableScrollView.swift; sourceTree = "<group>"; };
-		BF2624C3245AEDB500D7D9F1 /* ScrollOffsetPreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollOffsetPreferenceKey.swift; sourceTree = "<group>"; };
 		BF334CB924123E5C009B3218 /* MyAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccount.swift; sourceTree = "<group>"; };
 		BF334CBD241247C7009B3218 /* MyProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfile.swift; sourceTree = "<group>"; };
 		BF3535AF2418827A001EE48C /* AddImageBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageBtn.swift; sourceTree = "<group>"; };
-		BF3B83A6244FE207005EFB15 /* CreateNewAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewAddress.swift; sourceTree = "<group>"; };
-		BF3B83AA244FEA3B005EFB15 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
-		BF43A118244D99AC00F32ECF /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		BF48073024284ADF003598C5 /* Vehicles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicles.swift; sourceTree = "<group>"; };
 		BF496FE62411195E00048EAB /* AccountMenus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMenus.swift; sourceTree = "<group>"; };
 		BF524FF224247EEF0063AE01 /* CandidateItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandidateItemRow.swift; sourceTree = "<group>"; };
 		BF524FF424247F1B0063AE01 /* Candidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Candidate.swift; sourceTree = "<group>"; };
 		BF524FF624251AB70063AE01 /* Texts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texts.swift; sourceTree = "<group>"; };
-		BF542F522464C81000186B05 /* CreateConnectAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateConnectAccount.swift; sourceTree = "<group>"; };
-		BF542F542465622B00186B05 /* ForgotPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassword.swift; sourceTree = "<group>"; };
-		BF542F562465AA2D00186B05 /* QuantityBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantityBox.swift; sourceTree = "<group>"; };
-		BF5ABF4F2441C40100B34657 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		BF5ABF512441C44400B34657 /* LandmarkAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkAnnotation.swift; sourceTree = "<group>"; };
-		BF5ABF532441C4A600B34657 /* MapViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewCoordinator.swift; sourceTree = "<group>"; };
 		BF5D512323FA366C00D7048B /* Deal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deal.swift; sourceTree = "<group>"; };
 		BF5D512523FA36DA00D7048B /* DealDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealDetail.swift; sourceTree = "<group>"; };
 		BF60DCAB241BD75E00F86FE8 /* AddLicenseForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLicenseForm.swift; sourceTree = "<group>"; };
 		BF60DCAD241BD91900F86FE8 /* AddVehicleForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVehicleForm.swift; sourceTree = "<group>"; };
 		BF60DCAF241BDBD400F86FE8 /* AddInsuranceForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInsuranceForm.swift; sourceTree = "<group>"; };
+		BF60DCB1241BE6AE00F86FE8 /* VehicleItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleItemRow.swift; sourceTree = "<group>"; };
+		BF60DCB3241BE89900F86FE8 /* InsuranceItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsuranceItemRow.swift; sourceTree = "<group>"; };
 		BF60DCB5241BF6B900F86FE8 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
-		BF683FC8245720CA00A10215 /* TagListViewOnly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagListViewOnly.swift; sourceTree = "<group>"; };
 		BF75D2AA24179DB8005048B4 /* EditSkills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSkills.swift; sourceTree = "<group>"; };
 		BF75D2AC2417A324005048B4 /* Licenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Licenses.swift; sourceTree = "<group>"; };
-		BF77D4A12458305000D4EF68 /* CommentUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentUI.swift; sourceTree = "<group>"; };
-		BF77D4A32458346100D4EF68 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		BF75D2AE2417A353005048B4 /* LicenseItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseItemRow.swift; sourceTree = "<group>"; };
 		BF7ED188240B76FC00788A6D /* StaticStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticStrings.swift; sourceTree = "<group>"; };
 		BF84F2ED2406644600F75839 /* ItemJobListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemJobListRow.swift; sourceTree = "<group>"; };
 		BF84F2EF2406646700F75839 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
@@ -329,8 +249,9 @@
 		BFEF59AE2420D6F400762AE5 /* RKManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RKManager.swift; sourceTree = "<group>"; };
 		BFEF59AF2420D6F400762AE5 /* RKWeekdayHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RKWeekdayHeader.swift; sourceTree = "<group>"; };
 		BFEF59B92420DDB200762AE5 /* DateSelectorModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectorModal.swift; sourceTree = "<group>"; };
-		DD36906BE4FF30976FEF4C06 /* Pods-JouleBookUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JouleBookUI.release.xcconfig"; path = "Target Support Files/Pods-JouleBookUI/Pods-JouleBookUI.release.xcconfig"; sourceTree = "<group>"; };
-		EB7FD87CCC8BE917ECE9DCC2 /* Pods_JouleBookUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JouleBookUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C17021A35C70F92CA1B9B177 /* Pods_JouleBookUI_JouleBookUIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JouleBookUI_JouleBookUIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB4B914C8B44D1A33EC02B23 /* Pods-JouleBookUI-JouleBookUIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JouleBookUI-JouleBookUIUITests.release.xcconfig"; path = "Target Support Files/Pods-JouleBookUI-JouleBookUIUITests/Pods-JouleBookUI-JouleBookUIUITests.release.xcconfig"; sourceTree = "<group>"; };
+		FDEB4D1B8F4D8A0F74E92CD3 /* Pods-JouleBookUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JouleBookUITests.release.xcconfig"; path = "Target Support Files/Pods-JouleBookUITests/Pods-JouleBookUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -339,11 +260,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C9DF2E723F66F1300B576BB /* URLImage in Frameworks */,
-				BFF60FA224406D4400B120ED /* Mantis in Frameworks */,
-				BF43A11C244D9C4D00F32ECF /* AMPopTip in Frameworks */,
 				BF3DFD82241F6EB2004EFDFC /* ClockTimePicker in Frameworks */,
-				BFF60F9A24406AF500B120ED /* KeychainAccess in Frameworks */,
-				EB2C982ED802FFF579C9933D /* Pods_JouleBookUI.framework in Frameworks */,
+				55FAC427CF4B0531DAB012FD /* Pods_JouleBookUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,7 +269,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2305C60B9B0F0A6048F3EAB /* Pods_JouleBookUITests.framework in Frameworks */,
+				1100E39ED90C4773F7B05C27 /* Pods_JouleBookUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,13 +277,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B083C2C09BECE26416BFEB87 /* Pods_JouleBookUI_JouleBookUIUITests.framework in Frameworks */,
+				B238F15F1C3DF319A496B7E0 /* Pods_JouleBookUI_JouleBookUIUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2470FBC976F8656FEDE92F96 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6767B89603A5EA9D940D7453 /* Pods_JouleBookUI.framework */,
+				C17021A35C70F92CA1B9B177 /* Pods_JouleBookUI_JouleBookUIUITests.framework */,
+				9CE99E8ADD1B8CDF12854F29 /* Pods_JouleBookUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2C49809223ED0A8100F2FB33 = {
 			isa = PBXGroup;
 			children = (
@@ -374,15 +302,14 @@
 				2C4980BF23ED0A9200F2FB33 /* JouleBookUIUITests */,
 				2C49809C23ED0A8100F2FB33 /* Products */,
 				A6DBC2C7A073D3DAB585940E /* Pods */,
-				BFDC8D5624408F4C00B03F6C /* Recovered References */,
-				45C252B55DC7F536FC38ADF2 /* Frameworks */,
+				2470FBC976F8656FEDE92F96 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		2C49809C23ED0A8100F2FB33 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2C49809B23ED0A8100F2FB33 /* JouleBook.app */,
+				2C49809B23ED0A8100F2FB33 /* JouleBookUI.app */,
 				2C4980B123ED0A9200F2FB33 /* JouleBookUITests.xctest */,
 				2C4980BC23ED0A9200F2FB33 /* JouleBookUIUITests.xctest */,
 			);
@@ -426,16 +353,6 @@
 				BF8D52C32413556700545DB4 /* ProviderProfile.swift */,
 				BF85968224261B9600CDDAC1 /* InstantCatView.swift */,
 				BF8B386124270F4500F003DA /* Candidatedetail.swift */,
-				BF5ABF4F2441C40100B34657 /* MapView.swift */,
-				BF0F2DF42445A123004E0C64 /* MyAddress.swift */,
-				BF0F2DFE24461C6C004E0C64 /* Test.swift */,
-				BF3B83A6244FE207005EFB15 /* CreateNewAddress.swift */,
-				BF2384F424532D8400832B2A /* InstantHelp.swift */,
-				BF2624BF2459A6CD00D7D9F1 /* GetDeal.swift */,
-				BF11E3B82461C4B1009E3E26 /* BankAccountsCards.swift */,
-				BF11E3BE2462557E009E3E26 /* CreateCreditCard.swift */,
-				BF542F522464C81000186B05 /* CreateConnectAccount.swift */,
-				BF542F542465622B00186B05 /* ForgotPassword.swift */,
 			);
 			path = JouleBookUI;
 			sourceTree = "<group>";
@@ -476,15 +393,12 @@
 		2CC355C123F55EB6003C7FE4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BF2624BA2459697500D7D9F1 /* Chat */,
-				BF77D4A02458302F00D4EF68 /* Comment */,
-				BF17991C245424CD00A15C38 /* DealDetail */,
-				BF2384EF2452EE8A00832B2A /* Home */,
 				BFEF59A82420D6DD00762AE5 /* Calendar */,
 				BFDB8D6C241C903600620B5E /* Jobs */,
 				BFDB8D69241C901400620B5E /* Deals */,
 				BF75D2A924179D87005048B4 /* ProviderProfile */,
 				2CF5AEBE23EEC09A0049A940 /* ItemDealListRow.swift */,
+				2CD0599E23ED5A0D0031D99D /* MapView.swift */,
 				2CD0599A23ED47C80031D99D /* CircleImage.swift */,
 				BFA119DE23FAF15C005AEEC0 /* HorizontalLine.swift */,
 				BFA119E523FAFB20005AEEC0 /* Buttons.swift */,
@@ -499,7 +413,10 @@
 				BF84F2F32406886700F75839 /* ImageUrl.swift */,
 				BF84F2FF240781DE00F75839 /* VTextIcon.swift */,
 				BFC15C202413BD21006C245B /* TagList.swift */,
+				BF75D2AE2417A353005048B4 /* LicenseItemRow.swift */,
 				BF3535AF2418827A001EE48C /* AddImageBtn.swift */,
+				BF60DCB1241BE6AE00F86FE8 /* VehicleItemRow.swift */,
+				BF60DCB3241BE89900F86FE8 /* InsuranceItemRow.swift */,
 				BF60DCB5241BF6B900F86FE8 /* BottomSheetView.swift */,
 				BFDB8D6F241CF3C200620B5E /* DateTimeOptions.swift */,
 				BFDB8D71241D1A1800620B5E /* TimeSlots.swift */,
@@ -507,14 +424,6 @@
 				BFEF59A624207B7E00762AE5 /* TimeOptions.swift */,
 				BF524FF224247EEF0063AE01 /* CandidateItemRow.swift */,
 				BF524FF624251AB70063AE01 /* Texts.swift */,
-				BF5ABF532441C4A600B34657 /* MapViewCoordinator.swift */,
-				BF041CD42444376300013957 /* MarkerInfoWindow.swift */,
-				BF25206A2448C6F1000E2AB9 /* CheckboxField.swift */,
-				BF3B83AA244FEA3B005EFB15 /* RadioButton.swift */,
-				BF17991A2453FD5900A15C38 /* Slider.swift */,
-				BF683FC8245720CA00A10215 /* TagListViewOnly.swift */,
-				BF2624C1245AED7900D7D9F1 /* TrackableScrollView.swift */,
-				BF542F562465AA2D00186B05 /* QuantityBox.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -528,13 +437,6 @@
 				BF84F2EF2406646700F75839 /* Job.swift */,
 				BF84F2F1240664C000F75839 /* Coordinates.swift */,
 				BF524FF424247F1B0063AE01 /* Candidate.swift */,
-				BF5ABF512441C44400B34657 /* LandmarkAnnotation.swift */,
-				BF0F2DF62445A1AF004E0C64 /* AddressObj.swift */,
-				BF25206C2448D8D9000E2AB9 /* DealObservable.swift */,
-				BF77D4A32458346100D4EF68 /* Comment.swift */,
-				BF2624BD2459A01B00D7D9F1 /* BookDeal.swift */,
-				BF11E3BA2461C562009E3E26 /* BankAccountObj.swift */,
-				BF11E3BC2461C575009E3E26 /* CardObj.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -548,25 +450,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		45C252B55DC7F536FC38ADF2 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				98CBABCA37A90C982C6A13AE /* Pods_JouleBookUI.framework */,
-				0B703F353D927FB42D46915A /* Pods_JouleBookUI_JouleBookUIUITests.framework */,
-				EB7FD87CCC8BE917ECE9DCC2 /* Pods_JouleBookUITests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		A6DBC2C7A073D3DAB585940E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				AB8BD3861F53850F54EC2FBB /* Pods-JouleBookUI.debug.xcconfig */,
-				DD36906BE4FF30976FEF4C06 /* Pods-JouleBookUI.release.xcconfig */,
-				4E3689B6E690F249306120F1 /* Pods-JouleBookUI-JouleBookUIUITests.debug.xcconfig */,
-				8F6FDC75B4C3C8E744759ED6 /* Pods-JouleBookUI-JouleBookUIUITests.release.xcconfig */,
-				59416D6EC2B6F47E9F5B0587 /* Pods-JouleBookUITests.debug.xcconfig */,
-				3A35749502D7461A8ADC0EBC /* Pods-JouleBookUITests.release.xcconfig */,
+				1C6D2F49FD2F656F64482C99 /* Pods-JouleBookUI.debug.xcconfig */,
+				6FD803C3670244D865D0AB8E /* Pods-JouleBookUI.release.xcconfig */,
+				12A0A4F74FFEE70E03998D14 /* Pods-JouleBookUI-JouleBookUIUITests.debug.xcconfig */,
+				CB4B914C8B44D1A33EC02B23 /* Pods-JouleBookUI-JouleBookUIUITests.release.xcconfig */,
+				168071E6FD3AE0C747D32F37 /* Pods-JouleBookUITests.debug.xcconfig */,
+				FDEB4D1B8F4D8A0F74E92CD3 /* Pods-JouleBookUITests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -580,32 +472,6 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		BF17991C245424CD00A15C38 /* DealDetail */ = {
-			isa = PBXGroup;
-			children = (
-				BF17991D245424DF00A15C38 /* TitleBlock.swift */,
-				BF17991F245432FB00A15C38 /* Informations.swift */,
-			);
-			path = DealDetail;
-			sourceTree = "<group>";
-		};
-		BF2384EF2452EE8A00832B2A /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				BF2384F02452EEB900832B2A /* TopReport.swift */,
-				BF2384F2245306DA00832B2A /* fiveicons.swift */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		BF2624BA2459697500D7D9F1 /* Chat */ = {
-			isa = PBXGroup;
-			children = (
-				BF2624BB2459698A00D7D9F1 /* ChatUI.swift */,
-			);
-			path = Chat;
-			sourceTree = "<group>";
-		};
 		BF75D2A924179D87005048B4 /* ProviderProfile */ = {
 			isa = PBXGroup;
 			children = (
@@ -615,17 +481,8 @@
 				BF60DCAD241BD91900F86FE8 /* AddVehicleForm.swift */,
 				BF60DCAF241BDBD400F86FE8 /* AddInsuranceForm.swift */,
 				BF48073024284ADF003598C5 /* Vehicles.swift */,
-				BF2384ED2452D56600832B2A /* Insurances.swift */,
 			);
 			path = ProviderProfile;
-			sourceTree = "<group>";
-		};
-		BF77D4A02458302F00D4EF68 /* Comment */ = {
-			isa = PBXGroup;
-			children = (
-				BF77D4A12458305000D4EF68 /* CommentUI.swift */,
-			);
-			path = Comment;
 			sourceTree = "<group>";
 		};
 		BF84F3032409690700F75839 /* Network */ = {
@@ -637,8 +494,6 @@
 				BF8A7C7C240A74BB004A45CA /* Endpoint.swift */,
 				BF8A7C7E240ACCCE004A45CA /* HttpAuth.swift */,
 				BF930A8A240BA26B009AFB65 /* RequestInterceptor.swift */,
-				BF0F2DF82445C185004E0C64 /* APIRouter.swift */,
-				BF0F2DFC2445CAD4004E0C64 /* APIClient.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -651,9 +506,6 @@
 				BF84F2F524068D9300F75839 /* Fonts.swift */,
 				BF7ED188240B76FC00788A6D /* StaticStrings.swift */,
 				BFA30E742423CC230041004A /* DateFunc.swift */,
-				BF0F2DFA2445C26B004E0C64 /* Networking.swift */,
-				BF252068244848A1000E2AB9 /* AppUtils.swift */,
-				BF43A118244D99AC00F32ECF /* View.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -665,8 +517,6 @@
 				BF84F2FB2407641700F75839 /* BaseView.swift */,
 				BF84F3012408CF9400F75839 /* UserDefault.swift */,
 				BF84F2FD24077BCB00F75839 /* ViewRouter.swift */,
-				BF041CD22443254E00013957 /* LocationUpdate.swift */,
-				BF2624C3245AEDB500D7D9F1 /* ScrollOffsetPreferenceKey.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -685,13 +535,6 @@
 				BFDB8D6D241C904B00620B5E /* AddJobForm.swift */,
 			);
 			path = Jobs;
-			sourceTree = "<group>";
-		};
-		BFDC8D5624408F4C00B03F6C /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		BFEF59A82420D6DD00762AE5 /* Calendar */ = {
@@ -716,13 +559,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2C4980C523ED0A9200F2FB33 /* Build configuration list for PBXNativeTarget "JouleBookUI" */;
 			buildPhases = (
-				A4DC4DBA5244FA5998AB291E /* [CP] Check Pods Manifest.lock */,
+				2F965909BA86F8FABF329D35 /* [CP] Check Pods Manifest.lock */,
 				2C49809723ED0A8100F2FB33 /* Sources */,
 				2C49809823ED0A8100F2FB33 /* Frameworks */,
 				2C49809923ED0A8100F2FB33 /* Resources */,
 				BF5D512923FA6E4300D7048B /* Embed Frameworks */,
-				AD3DE5588B2E3B5BF4FC2E28 /* [CP] Embed Pods Frameworks */,
-				B1385B59BAF4277E4D18F343 /* [CP] Copy Pods Resources */,
+				834465942AE9CCB3FEE8C4B4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -732,19 +574,16 @@
 			packageProductDependencies = (
 				2C9DF2E623F66F1300B576BB /* URLImage */,
 				BF3DFD81241F6EB2004EFDFC /* ClockTimePicker */,
-				BFF60F9924406AF500B120ED /* KeychainAccess */,
-				BFF60FA124406D4400B120ED /* Mantis */,
-				BF43A11B244D9C4D00F32ECF /* AMPopTip */,
 			);
 			productName = JouleBookUI;
-			productReference = 2C49809B23ED0A8100F2FB33 /* JouleBook.app */;
+			productReference = 2C49809B23ED0A8100F2FB33 /* JouleBookUI.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2C4980B023ED0A9200F2FB33 /* JouleBookUITests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2C4980C823ED0A9200F2FB33 /* Build configuration list for PBXNativeTarget "JouleBookUITests" */;
 			buildPhases = (
-				355360674226B576FF78BC71 /* [CP] Check Pods Manifest.lock */,
+				033692BE3DC9C89DD3DF0552 /* [CP] Check Pods Manifest.lock */,
 				2C4980AD23ED0A9200F2FB33 /* Sources */,
 				2C4980AE23ED0A9200F2FB33 /* Frameworks */,
 				2C4980AF23ED0A9200F2FB33 /* Resources */,
@@ -763,12 +602,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2C4980CB23ED0A9200F2FB33 /* Build configuration list for PBXNativeTarget "JouleBookUIUITests" */;
 			buildPhases = (
-				7368D407AA308D2509ABCFD1 /* [CP] Check Pods Manifest.lock */,
+				6C9DDB87F21BB7B3987B486B /* [CP] Check Pods Manifest.lock */,
 				2C4980B823ED0A9200F2FB33 /* Sources */,
 				2C4980B923ED0A9200F2FB33 /* Frameworks */,
 				2C4980BA23ED0A9200F2FB33 /* Resources */,
-				EEF2C9A4B8F57A9A22AE83E7 /* [CP] Embed Pods Frameworks */,
-				23A2E9CA8E18C37107E890A7 /* [CP] Copy Pods Resources */,
+				28BEA3FCB5163FBBFE91E098 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -795,7 +633,6 @@
 				TargetAttributes = {
 					2C49809A23ED0A8100F2FB33 = {
 						CreatedOnToolsVersion = 11.0;
-						LastSwiftMigration = 1140;
 					};
 					2C4980B023ED0A9200F2FB33 = {
 						CreatedOnToolsVersion = 11.0;
@@ -819,9 +656,6 @@
 			packageReferences = (
 				2C9DF2E523F66F1300B576BB /* XCRemoteSwiftPackageReference "url-image" */,
 				BF3DFD80241F6EB2004EFDFC /* XCRemoteSwiftPackageReference "ClockTimePicker" */,
-				BFF60F9824406AF500B120ED /* XCRemoteSwiftPackageReference "KeychainAccess" */,
-				BFF60FA024406D4400B120ED /* XCRemoteSwiftPackageReference "Mantis" */,
-				BF43A11A244D9C4D00F32ECF /* XCRemoteSwiftPackageReference "AMPopTip" */,
 			);
 			productRefGroup = 2C49809C23ED0A8100F2FB33 /* Products */;
 			projectDirPath = "";
@@ -864,24 +698,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		23A2E9CA8E18C37107E890A7 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-JouleBookUI-JouleBookUIUITests/Pods-JouleBookUI-JouleBookUIUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-JouleBookUI-JouleBookUIUITests/Pods-JouleBookUI-JouleBookUIUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JouleBookUI-JouleBookUIUITests/Pods-JouleBookUI-JouleBookUIUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		355360674226B576FF78BC71 /* [CP] Check Pods Manifest.lock */ = {
+		033692BE3DC9C89DD3DF0552 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -903,29 +720,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7368D407AA308D2509ABCFD1 /* [CP] Check Pods Manifest.lock */ = {
+		28BEA3FCB5163FBBFE91E098 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JouleBookUI-JouleBookUIUITests/Pods-JouleBookUI-JouleBookUIUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-JouleBookUI-JouleBookUIUITests-checkManifestLockResult.txt",
+				"${PODS_ROOT}/Target Support Files/Pods-JouleBookUI-JouleBookUIUITests/Pods-JouleBookUI-JouleBookUIUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JouleBookUI-JouleBookUIUITests/Pods-JouleBookUI-JouleBookUIUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A4DC4DBA5244FA5998AB291E /* [CP] Check Pods Manifest.lock */ = {
+		2F965909BA86F8FABF329D35 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -947,7 +759,29 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AD3DE5588B2E3B5BF4FC2E28 /* [CP] Embed Pods Frameworks */ = {
+		6C9DDB87F21BB7B3987B486B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JouleBookUI-JouleBookUIUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		834465942AE9CCB3FEE8C4B4 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -964,40 +798,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JouleBookUI/Pods-JouleBookUI-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B1385B59BAF4277E4D18F343 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-JouleBookUI/Pods-JouleBookUI-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-JouleBookUI/Pods-JouleBookUI-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JouleBookUI/Pods-JouleBookUI-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EEF2C9A4B8F57A9A22AE83E7 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-JouleBookUI-JouleBookUIUITests/Pods-JouleBookUI-JouleBookUIUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-JouleBookUI-JouleBookUIUITests/Pods-JouleBookUI-JouleBookUIUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JouleBookUI-JouleBookUIUITests/Pods-JouleBookUI-JouleBookUIUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1005,39 +805,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF0F2DF72445A1AF004E0C64 /* AddressObj.swift in Sources */,
 				BF8D5D3F2403E0710052BFB0 /* BottomMainMenus.swift in Sources */,
 				2C49809F23ED0A8100F2FB33 /* AppDelegate.swift in Sources */,
 				BFEF59B52420D6F400762AE5 /* RKManager.swift in Sources */,
-				BF3B83A7244FE207005EFB15 /* CreateNewAddress.swift in Sources */,
-				BF25206D2448D8D9000E2AB9 /* DealObservable.swift in Sources */,
 				BF84F307240984BA00F75839 /* ApiRequests.swift in Sources */,
-				BF25206B2448C6F1000E2AB9 /* CheckboxField.swift in Sources */,
 				BF75D2AD2417A324005048B4 /* Licenses.swift in Sources */,
 				2CC355C023F4EFF4003C7FE4 /* DealJsonDatas.swift in Sources */,
-				BF2384F524532D8400832B2A /* InstantHelp.swift in Sources */,
 				BFEF59A724207B7E00762AE5 /* TimeOptions.swift in Sources */,
-				BF2624C4245AEDB500D7D9F1 /* ScrollOffsetPreferenceKey.swift in Sources */,
 				BF8D5D412403E2F60052BFB0 /* GetHired.swift in Sources */,
 				BFA119EA23FC021E005AEEC0 /* SignIn.swift in Sources */,
-				BF542F552465622B00186B05 /* ForgotPassword.swift in Sources */,
 				BF025B0D24010FDB00BAF9A4 /* Welcome.swift in Sources */,
 				BFDB8D70241CF3C200620B5E /* DateTimeOptions.swift in Sources */,
-				BF17991B2453FD5900A15C38 /* Slider.swift in Sources */,
-				BF041CD52444376300013957 /* MarkerInfoWindow.swift in Sources */,
 				BF84F2FE24077BCB00F75839 /* ViewRouter.swift in Sources */,
 				BF84F2F42406886700F75839 /* ImageUrl.swift in Sources */,
 				BF84F2EE2406644600F75839 /* ItemJobListRow.swift in Sources */,
 				BF60DCAE241BD91900F86FE8 /* AddVehicleForm.swift in Sources */,
 				BF5D512623FA36DA00D7048B /* DealDetail.swift in Sources */,
 				BF84F2F2240664C000F75839 /* Coordinates.swift in Sources */,
-				BF0F2DF52445A123004E0C64 /* MyAddress.swift in Sources */,
 				BF60DCAC241BD75E00F86FE8 /* AddLicenseForm.swift in Sources */,
 				BFEF59B42420D6F400762AE5 /* RKColorSettings.swift in Sources */,
 				BFA119E623FAFB20005AEEC0 /* Buttons.swift in Sources */,
-				BF542F532464C81000186B05 /* CreateConnectAccount.swift in Sources */,
 				BF48073124284ADF003598C5 /* Vehicles.swift in Sources */,
-				BF542F572465AA2D00186B05 /* QuantityBox.swift in Sources */,
 				BFEF59B22420D6F400762AE5 /* RKCell.swift in Sources */,
 				BFA119E423FAF622005AEEC0 /* Colors.swift in Sources */,
 				BF8D5D432403E30C0052BFB0 /* Hire.swift in Sources */,
@@ -1049,84 +837,61 @@
 				BF496FE72411195E00048EAB /* AccountMenus.swift in Sources */,
 				BF025B0924010E9E00BAF9A4 /* PageControl.swift in Sources */,
 				BF8D5D3D2403845F0052BFB0 /* InstantCategoryRow.swift in Sources */,
-				BF5ABF522441C44400B34657 /* LandmarkAnnotation.swift in Sources */,
-				BF2624C2245AED7900D7D9F1 /* TrackableScrollView.swift in Sources */,
-				BF77D4A22458305000D4EF68 /* CommentUI.swift in Sources */,
-				BF43A119244D99AC00F32ECF /* View.swift in Sources */,
 				BFEF59BA2420DDB200762AE5 /* DateSelectorModal.swift in Sources */,
 				BFEF59B02420D6F400762AE5 /* RKDate.swift in Sources */,
+				BF60DCB2241BE6AE00F86FE8 /* VehicleItemRow.swift in Sources */,
 				BF60DCB0241BDBD400F86FE8 /* AddInsuranceForm.swift in Sources */,
 				BFEF59B12420D6F400762AE5 /* RKMonth.swift in Sources */,
 				BF16B91124014097005CEE07 /* MainMenu.swift in Sources */,
 				BF8A7C7B240A718C004A45CA /* Client.swift in Sources */,
 				BF75D2AB24179DB8005048B4 /* EditSkills.swift in Sources */,
 				BF7ED189240B76FC00788A6D /* StaticStrings.swift in Sources */,
-				BF252069244848A1000E2AB9 /* AppUtils.swift in Sources */,
 				BFA30E752423CC230041004A /* DateFunc.swift in Sources */,
 				BF84F2F624068D9300F75839 /* Fonts.swift in Sources */,
 				BF8A7C7D240A74BB004A45CA /* Endpoint.swift in Sources */,
 				BF930A8B240BA26B009AFB65 /* RequestInterceptor.swift in Sources */,
 				BF8D5D492405055E0052BFB0 /* TopTabbar.swift in Sources */,
 				BF3535B02418827A001EE48C /* AddImageBtn.swift in Sources */,
-				BF3B83AB244FEA3B005EFB15 /* RadioButton.swift in Sources */,
-				BF17991E245424DF00A15C38 /* TitleBlock.swift in Sources */,
-				BF2384F12452EEB900832B2A /* TopReport.swift in Sources */,
-				BF0F2DFB2445C26B004E0C64 /* Networking.swift in Sources */,
-				BF0F2DFD2445CAD4004E0C64 /* APIClient.swift in Sources */,
-				BF041CD32443254E00013957 /* LocationUpdate.swift in Sources */,
 				2CF5AEBF23EEC09A0049A940 /* ItemDealListRow.swift in Sources */,
 				BFA119E823FBF30D005AEEC0 /* Dimens.swift in Sources */,
 				BF524FF324247EEF0063AE01 /* CandidateItemRow.swift in Sources */,
-				BF11E3BB2461C562009E3E26 /* BankAccountObj.swift in Sources */,
 				BF025B022400E4EB00BAF9A4 /* SmallTextLink.swift in Sources */,
 				BF84F3022408CF9600F75839 /* UserDefault.swift in Sources */,
-				BF2624BC2459698A00D7D9F1 /* ChatUI.swift in Sources */,
 				BF334CBA24123E5C009B3218 /* MyAccount.swift in Sources */,
-				BF11E3BF24625580009E3E26 /* CreateCreditCard.swift in Sources */,
 				BF524FF524247F1B0063AE01 /* Candidate.swift in Sources */,
 				BF524FF724251AB70063AE01 /* Texts.swift in Sources */,
 				2CD0599B23ED47C80031D99D /* CircleImage.swift in Sources */,
-				BF11E3BD2461C575009E3E26 /* CardObj.swift in Sources */,
-				BF0F2DF92445C185004E0C64 /* APIRouter.swift in Sources */,
-				BF5ABF542441C4A600B34657 /* MapViewCoordinator.swift in Sources */,
+				2CD0599F23ED5A0D0031D99D /* MapView.swift in Sources */,
 				2C4980A123ED0A8100F2FB33 /* SceneDelegate.swift in Sources */,
-				BF683FC9245720CA00A10215 /* TagListViewOnly.swift in Sources */,
 				BFDB8D72241D1A1800620B5E /* TimeSlots.swift in Sources */,
 				BF8B386224270F4500F003DA /* Candidatedetail.swift in Sources */,
 				BF60DCB6241BF6B900F86FE8 /* BottomSheetView.swift in Sources */,
+				BF75D2AF2417A353005048B4 /* LicenseItemRow.swift in Sources */,
 				BF16B913240142CC005CEE07 /* IconText.swift in Sources */,
 				BF109394241E2AE500EC7B9A /* FormattedTextField.swift in Sources */,
-				BF5ABF502441C40100B34657 /* MapView.swift in Sources */,
 				BF8D52C42413556700545DB4 /* ProviderProfile.swift in Sources */,
 				BF8D5D452403E3210052BFB0 /* Summary.swift in Sources */,
 				2C4980A323ED0A8100F2FB33 /* ContentView.swift in Sources */,
 				BF8D5D472403E3340052BFB0 /* Schedule.swift in Sources */,
-				BF2384EE2452D56600832B2A /* Insurances.swift in Sources */,
 				BF84F2FC2407641800F75839 /* BaseView.swift in Sources */,
 				BF025B0724010E5800BAF9A4 /* PageViewController.swift in Sources */,
 				2C06ECAC23F6AC4300EDC750 /* SignUp.swift in Sources */,
 				BF84F3052409694700F75839 /* Authentication.swift in Sources */,
 				BF84F300240781DF00F75839 /* VTextIcon.swift in Sources */,
+				BF60DCB4241BE89900F86FE8 /* InsuranceItemRow.swift in Sources */,
 				BF025B0B24010F5300BAF9A4 /* SubSliderView.swift in Sources */,
-				BF77D4A42458346100D4EF68 /* Comment.swift in Sources */,
 				BF8D5D3B240384290052BFB0 /* Home.swift in Sources */,
 				BFEF59B32420D6F400762AE5 /* RKViewController.swift in Sources */,
 				BF5D512423FA366C00D7048B /* Deal.swift in Sources */,
-				BF0F2DFF24461C6C004E0C64 /* Test.swift in Sources */,
 				2CC355C323F56544003C7FE4 /* DealList.swift in Sources */,
 				2C06ECAE23F6AD4000EDC750 /* UserView.swift in Sources */,
 				BF025AFE23FFE04800BAF9A4 /* PhoneVerification.swift in Sources */,
-				BF11E3B92461C4B3009E3E26 /* BankAccountsCards.swift in Sources */,
-				BF2624BE2459A01B00D7D9F1 /* BookDeal.swift in Sources */,
-				BF2384F3245306DA00832B2A /* fiveicons.swift in Sources */,
 				BFDB8D6B241C903100620B5E /* AddDealForm.swift in Sources */,
 				BFC15C212413BD21006C245B /* TagList.swift in Sources */,
 				BF8D5D4D240581330052BFB0 /* GridCollection.swift in Sources */,
 				BF334CBE241247C7009B3218 /* MyProfile.swift in Sources */,
 				BF85968324261B9600CDDAC1 /* InstantCatView.swift in Sources */,
 				BF84F2F02406646700F75839 /* Job.swift in Sources */,
-				BF179920245432FB00A15C38 /* Informations.swift in Sources */,
-				BF2624C02459A6CD00D7D9F1 /* GetDeal.swift in Sources */,
 				BFDB8D6E241C904B00620B5E /* AddJobForm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1177,7 +942,6 @@
 		2C4980C323ED0A9200F2FB33 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1186,7 +950,6 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_MODULES_AUTOLINK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -1210,7 +973,6 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1221,7 +983,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
@@ -1231,20 +993,16 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				"OTHER_LDFLAGS[arch=*]" = "";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				"SWIFT_COMPILATION_MODE[arch=*]" = wholemodule;
-				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/**";
+				"SWIFT_COMPILATION_MODE[arch=*]" = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				VALID_ARCHS = "armv7 armv7s arm64 arm64e";
 			};
 			name = Debug;
 		};
 		2C4980C423ED0A9200F2FB33 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1253,7 +1011,6 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_MODULES_AUTOLINK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -1277,12 +1034,11 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
@@ -1291,40 +1047,30 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				"OTHER_LDFLAGS[arch=*]" = "";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				"SWIFT_COMPILATION_MODE[arch=*]" = wholemodule;
-				SWIFT_INCLUDE_PATHS = "$(PROJECT_DIR)/**";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "armv7 armv7s arm64 arm64e";
 			};
 			name = Release;
 		};
 		2C4980C623ED0A9200F2FB33 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AB8BD3861F53850F54EC2FBB /* Pods-JouleBookUI.debug.xcconfig */;
+			baseConfigurationReference = 1C6D2F49FD2F656F64482C99 /* Pods-JouleBookUI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEFINES_MODULE = YES;
-				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "JouleBookUI/Preview\\ Content";
-				DEVELOPMENT_TEAM = C32CL625HD;
+				DEVELOPMENT_TEAM = Z29526PLGJ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = JouleBookUI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.joulebookinc.joulebook;
-				PRODUCT_NAME = JouleBook;
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				PRODUCT_BUNDLE_IDENTIFIER = ISOWEB.JouleBookUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1332,26 +1078,20 @@
 		};
 		2C4980C723ED0A9200F2FB33 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DD36906BE4FF30976FEF4C06 /* Pods-JouleBookUI.release.xcconfig */;
+			baseConfigurationReference = 6FD803C3670244D865D0AB8E /* Pods-JouleBookUI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEFINES_MODULE = YES;
-				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "JouleBookUI/Preview\\ Content";
-				DEVELOPMENT_TEAM = C32CL625HD;
+				DEVELOPMENT_TEAM = Z29526PLGJ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = JouleBookUI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.joulebookinc.joulebook;
-				PRODUCT_NAME = JouleBook;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PRODUCT_BUNDLE_IDENTIFIER = ISOWEB.JouleBookUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1359,7 +1099,7 @@
 		};
 		2C4980C923ED0A9200F2FB33 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 59416D6EC2B6F47E9F5B0587 /* Pods-JouleBookUITests.debug.xcconfig */;
+			baseConfigurationReference = 168071E6FD3AE0C747D32F37 /* Pods-JouleBookUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1381,7 +1121,7 @@
 		};
 		2C4980CA23ED0A9200F2FB33 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3A35749502D7461A8ADC0EBC /* Pods-JouleBookUITests.release.xcconfig */;
+			baseConfigurationReference = FDEB4D1B8F4D8A0F74E92CD3 /* Pods-JouleBookUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1403,7 +1143,7 @@
 		};
 		2C4980CC23ED0A9200F2FB33 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4E3689B6E690F249306120F1 /* Pods-JouleBookUI-JouleBookUIUITests.debug.xcconfig */;
+			baseConfigurationReference = 12A0A4F74FFEE70E03998D14 /* Pods-JouleBookUI-JouleBookUIUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1424,7 +1164,7 @@
 		};
 		2C4980CD23ED0A9200F2FB33 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8F6FDC75B4C3C8E744759ED6 /* Pods-JouleBookUI-JouleBookUIUITests.release.xcconfig */;
+			baseConfigurationReference = CB4B914C8B44D1A33EC02B23 /* Pods-JouleBookUI-JouleBookUIUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1501,30 +1241,6 @@
 				minimumVersion = 1.0.3;
 			};
 		};
-		BF43A11A244D9C4D00F32ECF /* XCRemoteSwiftPackageReference "AMPopTip" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/andreamazz/AMPopTip.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.5.0;
-			};
-		};
-		BFF60F9824406AF500B120ED /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.1.0;
-			};
-		};
-		BFF60FA024406D4400B120ED /* XCRemoteSwiftPackageReference "Mantis" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/guoyingtao/Mantis.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1537,21 +1253,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BF3DFD80241F6EB2004EFDFC /* XCRemoteSwiftPackageReference "ClockTimePicker" */;
 			productName = ClockTimePicker;
-		};
-		BF43A11B244D9C4D00F32ECF /* AMPopTip */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BF43A11A244D9C4D00F32ECF /* XCRemoteSwiftPackageReference "AMPopTip" */;
-			productName = AMPopTip;
-		};
-		BFF60F9924406AF500B120ED /* KeychainAccess */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BFF60F9824406AF500B120ED /* XCRemoteSwiftPackageReference "KeychainAccess" */;
-			productName = KeychainAccess;
-		};
-		BFF60FA124406D4400B120ED /* Mantis */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BFF60FA024406D4400B120ED /* XCRemoteSwiftPackageReference "Mantis" */;
-			productName = Mantis;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

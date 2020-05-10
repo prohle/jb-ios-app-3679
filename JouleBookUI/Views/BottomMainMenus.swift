@@ -54,35 +54,33 @@ struct BottomMainMenus: View {
     @State var presentForm: Bool = false
     var body: some View {
         ZStack{
-            if self.viewRouter.currentPage !=  "chatui"{
-                VStack{
-                    HStack{
-                        Spacer()
-                        Button(action: {
-                            self.presentForm.toggle()
-                            
-                        }, label: {
-                            Text("+")
-                            .font(.system(.largeTitle))
-                            .frame(width: 50, height: 43)
-                            .foregroundColor(Color.white)
-                            .padding(.bottom, 7)
-                        })
-                        .background(Color.main)
-                        .cornerRadius(25)
-                        .padding()
-                            .offset(y: -70)
-                        .shadow(color: Color.black.opacity(0.3),
-                                radius: 3,
-                                x: 3,
-                                y: 3)
-                    }
-                    BottomSheetView(
-                        isOpen: self.$presentForm,
-                        maxHeight: 250
-                    ) {
-                        AddButtons(presentForm: self.$presentForm).environmentObject(viewRouter)
-                    }
+            VStack{
+                HStack{
+                    Spacer()
+                    Button(action: {
+                        self.presentForm.toggle()
+                        
+                    }, label: {
+                        Text("+")
+                        .font(.system(.largeTitle))
+                        .frame(width: 50, height: 43)
+                        .foregroundColor(Color.white)
+                        .padding(.bottom, 7)
+                    })
+                    .background(Color.main)
+                    .cornerRadius(25)
+                    .padding()
+                        .offset(y: -70)
+                    .shadow(color: Color.black.opacity(0.3),
+                            radius: 3,
+                            x: 3,
+                            y: 3)
+                }
+                BottomSheetView(
+                    isOpen: self.$presentForm,
+                    maxHeight: 250
+                ) {
+                    AddButtons(presentForm: self.$presentForm).environmentObject(viewRouter)
                 }
             }
             HStack(alignment:.center,spacing: 10){

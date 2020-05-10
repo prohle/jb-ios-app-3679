@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-//self.getTextFromDate(date: self.rkManager1.selectedDate, format: "MM-d-yyyy") : self.getTextFromDate(date: Date(), format: "MM-d-yyyy")
+
 struct DateSelectorModal: View {
     @State var singleIsPresented = false
     //@Binding var selectedDs: [Date]
@@ -17,7 +17,7 @@ struct DateSelectorModal: View {
     var body: some View {
         VStack (spacing: 25) {
             Button(action: {  }) {
-                NormalButton(btnText: (self.rkManager1.selectedDate != nil) ? self.rkManager1.selectedDate.toLocalDateStr() : Date().toLocalDateStr(),fontSize: .textbody, textColor: Color.maintext, borderColor: Color.border, paddingH: CGFloat(5.00),paddingV: CGFloat(5.00),radius: CGFloat(5.00),iconLeft: "Artboard 18",iconLeftSize: 12)
+                NormalButton(btnText: (self.rkManager1.selectedDate != nil) ? self.getTextFromDate(date: self.rkManager1.selectedDate, format: "MM-d-yyyy") : self.getTextFromDate(date: Date(), format: "MM-d-yyyy"),fontSize: .textbody, textColor: Color.maintext, borderColor: Color.border, paddingH: CGFloat(5.00),paddingV: CGFloat(5.00),radius: CGFloat(5.00),iconLeft: "Artboard 18",iconLeftSize: 16)
                 //TextBody(text: (self.rkManager1.selectedDate != nil) ? self.getTextFromDate(date: self.rkManager1.selectedDate) : self.getTextFromDate(date: Date()))
             }
             .onTapGesture {
@@ -25,7 +25,8 @@ struct DateSelectorModal: View {
                 self.singleIsPresented.toggle()
             }
             .sheet(isPresented: self.$singleIsPresented, content: {
-                RKViewController(isPresented: self.$singleIsPresented, rkManager: self.rkManager1,monthIndex: self.$monthIndex)
+                RKViewController(isPresented: self.$singleIsPresented, rkManager: self.rkManager1,monthIndex: self.$monthIndex
+                )
                     //.onDisappear(perform: self.setDateV)
             })
         }
@@ -41,9 +42,3 @@ struct DateSelectorModal_Previews: PreviewProvider {
         DateSelectorModal()
     }
 }*/
-
-struct DateSelectorModal_Previews: PreviewProvider {
-    static var previews: some View {
-        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
-    }
-}

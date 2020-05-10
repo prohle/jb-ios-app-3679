@@ -9,12 +9,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>GoogleMaps.xcscheme</key>
+		<key>KeychainAccess.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>GooglePlaces.xcscheme</key>
+		<key>Mantis-Resource.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Mantis.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -39,12 +44,32 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Stripe-Stripe.xcscheme</key>
+		<key>RxBlocking.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Stripe.xcscheme</key>
+		<key>RxCocoa.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RxRelay.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RxSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RxTest.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Squid.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

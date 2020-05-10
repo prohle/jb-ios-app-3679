@@ -7,25 +7,25 @@
 //
 
 import SwiftUI
-import Combine
-import Alamofire
-import KeychainAccess
+
 struct Candidatedetail: View {
     @EnvironmentObject var viewRouter: ViewRouter
-    @ObservedObject var cadidateObserved = CadidateDetailObserver()
-    //@ObservedObject var rkManager: RKManager = RKManager(calendar: Calendar.current, minimumDate: Date().addingTimeInterval(-60*60*24*365), maximumDate: Date().addingTimeInterval(60*60*24*365),  mode: 0, isCancleable: false)
+    @State var singleIsPresented = true
+    @State var monthIndex: Int = 0
+    @State var candidateObj: Candidate
+    @ObservedObject var rkManager: RKManager = RKManager(calendar: Calendar.current, minimumDate: Date().addingTimeInterval(-60*60*24*365), maximumDate: Date().addingTimeInterval(60*60*24*365),  mode: 0, isCancleable: false)
     var body: some View {
         NavigationView {
             ScrollView(.vertical,showsIndicators: false) {
                 VStack(spacing: 30){
                         VStack(alignment: .center,spacing: 15){
-                            ImageUrlSameHeight(imageUrl:cadidateObserved.candidateObj.attachUrl1,width: CGFloat((UIScreen.main.bounds.width * 70) / 100))
+                            ImageUrlSameHeight(imageUrl:self.candidateObj.attachUrl1,width: CGFloat((UIScreen.main.bounds.width * 70) / 100))
                             HStack(alignment: .center,spacing: 15){
                                 Spacer()
                                 VStack{
-                                    TextBold(text: cadidateObserved.candidateObj.name)
+                                    TextBold(text: self.candidateObj.name)
                                     RatingBar()
-                                    TextBody(text: cadidateObserved.candidateObj.location, color: Color.subtext)
+                                    TextBody(text: self.candidateObj.location, color: Color.subtext)
                                 }
                                 HStack{
                                      TextBody(text: "JOBS\nCOMPLETE", color: Color.textlink,font: .textsmall)
@@ -35,11 +35,11 @@ struct Candidatedetail: View {
                             HStack{
                                 HStack{
                                     IconText(imageIconLeft:"Artboard 22",text:"Member Since: ",iconLeftSize:12,fontz: .textsmall)
-                                    TextBody(text:self.getTextFromDate(date: cadidateObserved.candidateObj.memberSince, format: "MM, yyyy"),color:.main,font: .textsmall)
+                                    TextBody(text:self.getTextFromDate(date: self.candidateObj.memberSince, format: "MM, yyyy"),color:.main,font: .textsmall)
                                 }
                                 HStack{
                                     IconText(imageIconLeft:"Artboard 23",text:"Responsiveness: ",iconLeftSize:12,fontz: .textsmall)
-                                    TextBody(text: cadidateObserved.candidateObj.responsiveless,color:.main,font: .textsmall)
+                                    TextBody(text: self.candidateObj.responsiveless,color:.main,font: .textsmall)
                                 }
                             }
                             HStack{
@@ -58,14 +58,14 @@ struct Candidatedetail: View {
                             }.padding([.horizontal],CGFloat.stHpadding)
                             .padding([.vertical],CGFloat.stVpadding)
                             .background(Color.white)
-                        /*
+                        
                         VStack(alignment: .leading,spacing: 15){
                             TextBody(text: "Schedule", color: .textlink, font: Font.headline)
                             RKViewController(isPresented: self.$singleIsPresented, rkManager: self.rkManager,monthIndex: self.$monthIndex)
                             HStack{Spacer()}
                             
                         }.padding([.horizontal],CGFloat.stHpadding)
-                        .padding([.vertical],CGFloat.stVpadding).background(Color.white)*/
+                        .padding([.vertical],CGFloat.stVpadding).background(Color.white)
                     
                         VStack(alignment: .leading,spacing: 15){
                             HStack(spacing: 15){
@@ -74,7 +74,7 @@ struct Candidatedetail: View {
                                 VStack{
                                     TextBold(text: "Member since",font: .subheadline)
                                     Spacer()
-                                    TextBold(text: self.getTextFromDate(date: cadidateObserved.candidateObj.memberSince, format: "MM, yyyy"), color: .textlink, font: .subheadline)
+                                    TextBold(text: self.getTextFromDate(date: self.candidateObj.memberSince, format: "MM, yyyy"), color: .textlink, font: .subheadline)
                                 }
                                 VeticleLine(color: .border, width: 1)
                                 VStack{
@@ -97,20 +97,17 @@ struct Candidatedetail: View {
                     VStack(alignment: .leading, spacing: 15){
                         TextBody(text: "Information Detail", color:.textlink, font: .headline)
                         HorizontalLine(color: .border, height: 1)
-                        //ViewSkills(skillsOne: self.$candidateObj.skillsOne, skillsTwo: self.$candidateObj.skillsTwo, skillsThree: self.$candidateObj.skillsThree, skillsFour: self.$candidateObj.skillsFour )
+                        ViewSkills(skillsOne: self.$candidateObj.skillsOne, skillsTwo: self.$candidateObj.skillsTwo, skillsThree: self.$candidateObj.skillsThree, skillsFour: self.$candidateObj.skillsFour )
                         
-                        //LicensesViewOnly().environmentObject(self.viewRouter)
+                        LicensesViewOnly(licenseObjs: self.$candidateObj.licenseObjs)
                         
                     }.padding([.horizontal],CGFloat.stHpadding)
                     .padding([.vertical],CGFloat.stVpadding).background(Color.white)
-                }
-                .onAppear(perform: {self.cadidateObserved.getCandidateDetail(cadidateId: self.viewRouter.objectId)})
-                .background(Color.mainback)
+                }.offset(y: -500).background(Color.mainback)
             }
             .navigationViewStyle(StackNavigationViewStyle())
             .navigationBarTitle("", displayMode: .inline)
             .navigationBarItems(leading: DetailCandidateHomeLeftTopTabbar(), trailing: MainTopTabbar())
-            
         }
         
     }
@@ -122,42 +119,6 @@ struct Candidatedetail: View {
             
         )
     }*/
-}
-class CadidateDetailObserver : ObservableObject{
-    @Published var candidateObj: Candidate
-    init() {
-        self.candidateObj = Candidate.init()
-    }
-    func getCandidateDetail(cadidateId: Int){
-        let keychain = Keychain(service: "ISOWEB.JouleBookUI")
-        let interceptor = RequestInterceptor(storage: keychain)
-        let parameters = ["id": cadidateId]
-        AF.request("https://api-gateway.joulebook.com/api-gateway/user/v1.0/users/profiles",
-            method: .get,
-            parameters: parameters,
-            encoder: JSONParameterEncoder.default,
-            interceptor: interceptor
-        ).validate(statusCode: 200..<300)
-        .validate(contentType: ["application/json"])
-        .responseJSON{response in
-            switch response.result{
-            case .failure(let f):
-               debugPrint(response)
-            case .success(let s):
-                print(">> SUCCESS: ",s)
-            }
-            //debugPrint(response)
-        }
-    }
-}
-struct CandidateDetailQuery: Encodable {
-    let size: Int
-    let from: Int
-    let cat: Int
-    let q: String
-    let northeast:Glocation
-    let southwest:Glocation
-    let latlng:Glocation
 }
 struct DetailCandidateHomeLeftTopTabbar: View {
     @EnvironmentObject var viewRouter: ViewRouter
@@ -171,9 +132,8 @@ struct DetailCandidateHomeLeftTopTabbar: View {
         }
     }
 }
-/*
 struct Candidatedetail_Previews: PreviewProvider {
     static var previews: some View {
         Candidatedetail(candidateObj: Candidate(id: 1,name: "Pham Van Mong",attachUrl1: "https://i-vnexpress.vnecdn.net/2020/02/25/db9e491c570011eaa70a88c9f79d55-8593-1641-1582636513_500x300.jpg", isInstant: true, rating: CGFloat(4.5), ratingNumber:20, moneyRate:"$20 - $40", memberSince:Date(), responsiveless:"in hour", instantCats:[1,5], jobComplete: 8,currentDeals: 8,topSkills: ["Android","IOS"], aboutUs:"Lorem ipsum dolor", location: "Los Angeles, CA"))
     }
-}*/
+}

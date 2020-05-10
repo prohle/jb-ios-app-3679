@@ -9,16 +9,22 @@
 import SwiftUI
 
 struct AddVehicleForm: View {
-    @Binding  var vehicleObj : ProviderVehicle
-    @Binding  var showSheet : Bool
+    @EnvironmentObject var viewRouter: ViewRouter
+    @State  var vehicleObj : ProviderVehicle
+    static let taskDateFormat: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.dateFormat = "MM-DD-YYYY"
+        return formatter
+    }()
     var body: some View {
-        //NavigationView {
+        NavigationView {
                 Form{
                     Section{
                         HStack{
                             TextBody(text: "Car Make")
                             Spacer()
-                            TextField("Set Brand Car", text: $vehicleObj.car_make)
+                            TextField("Set Brand Car", text: $vehicleObj.carMake)
                                 .font(.textbody)
                                 .foregroundColor(Color.maintext)
                                 .multilineTextAlignment(.trailing)
@@ -48,39 +54,35 @@ struct AddVehicleForm: View {
                         HStack{
                             TextBody(text: "Plate Number")
                             Spacer()
-                            TextField("Set Plate Number", text: $vehicleObj.plate_number)
+                            TextField("Set Plate Number", text: $vehicleObj.plateNumber)
                                 .font(.textbody)
                                 .foregroundColor(Color.maintext)
                                 .multilineTextAlignment(.trailing)
                                 .autocapitalization(.none)
                                 .padding(2)
                         }
-                        BasicButton(btnText:"Save Vehicle",imageName: nil,iconWidth:18, iconHeight:18,isActive: true,paddingH: CGFloat(5.00),paddingV:CGFloat(5.00),fontSize: .textbody).onTapGesture {
-                            if self.vehicleObj.saveVehicle() {
-                                self.showSheet = false
-                            }
-                        }
                     }
-                }.onTapGesture {
-                    self.endEditing()
                 }
-            /*.navigationViewStyle(StackNavigationViewStyle())
+            .navigationViewStyle(StackNavigationViewStyle())
             .navigationBarTitle("", displayMode: .inline)
-                .navigationBarItems(leading: VehicleHomeLeftTopTabbar(), trailing: VehicleTopSaveTabbar(vehicleObj: self.$vehicleObj))
+            .navigationBarItems(leading: VehicleHomeLeftTopTabbar(), trailing: VehicleTopSaveTabbar())
             
-        }*/
+        }.onAppear(perform: onAppearForm)
+        .onDisappear {
+            print("ContentView disappeared!")
+        }
     }
-    func endEditing(){
-        UIApplication.shared.endEditing()
+    func onAppearForm(){
+        print("ContentView appeared!")
     }
 }
 
 struct VehicleTopSaveTabbar: View {
-    @Binding var vehicleObj : ProviderVehicle
+    //var providerProfileModel: ProviderProfileModel
     var body: some View {
         HStack{
             Button(action: {
-                self.vehicleObj.saveVehicle()
+                //debugPrint(self.providerProfileModel.skillsOne.count)
             }) {
                 Image( "Artboard 8")
                     .resizable()

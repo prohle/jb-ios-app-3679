@@ -16,9 +16,8 @@ class CropingImg:NSObject, CropViewControllerDelegate{
     func cropViewControllerDidCrop(_ cropViewController: CropViewController, cropped: UIImage, transformation: Transformation) {
         uiImageInCroping = cropped
     }
-}
-enum ActiveSheet {
-   case selectimg, cutimg
+    
+    
 }
 struct CropingImageView {
     @Binding var uiimage: UIImage
@@ -43,52 +42,45 @@ extension CropingImageView: UIViewControllerRepresentable {
     
   }
 }
-class ImgPickerCoordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     @Binding var isCoordinatorShown: Bool
     //@Binding var imageInCoordinator: [Image]
     @Binding var uiImageInCoordinator: [UIImage]
     var maxImg: Int?
-    @Binding var showCaptureImageView: ActiveSheet
-    init(isShown: Binding<Bool>, uiimages: Binding<[UIImage]>, maxImg: Int?, showCaptureImageView: Binding<ActiveSheet>) {
+    init(isShown: Binding<Bool>, uiimages: Binding<[UIImage]>, maxImg: Int?) {
         _isCoordinatorShown = isShown
         //_imageInCoordinator = images
         _uiImageInCoordinator = uiimages
         self.maxImg = maxImg
-        _showCaptureImageView = showCaptureImageView
     }
     
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let unwrapImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
         if(self.maxImg ?? -1 > 0){
-            if(uiImageInCoordinator.count >= self.maxImg!){
-                //uiImageInCoordinator.append(unwrapImage)
-                uiImageInCoordinator.remove(at: (uiImageInCoordinator.count - 1))
+            if(uiImageInCoordinator.count < self.maxImg!){
+                uiImageInCoordinator.append(unwrapImage)
+                //imageInCoordinator.append(Image(uiImage: unwrapImage))
             }
-            uiImageInCoordinator.append(unwrapImage)
         }else{
             uiImageInCoordinator.append(unwrapImage)
             //imageInCoordinator.append(Image(uiImage: unwrapImage))
         }
-        //isCoordinatorShown = true
-        showCaptureImageView = .cutimg
+        //isCoordinatorShown = false
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         isCoordinatorShown = false
-        
     }
 }
 struct CaptureImageView {
   @Binding var isShown: Bool
   //@Binding var images: [Image]
   @Binding var uiimages: [UIImage]
-  @Binding var showCaptureImageView: ActiveSheet
   var maxImg: Int?
-  func makeCoordinator() -> ImgPickerCoordinator {
-    return ImgPickerCoordinator(isShown: $isShown,  uiimages: $uiimages, maxImg: self.maxImg, showCaptureImageView: $showCaptureImageView)
-    
+  func makeCoordinator() -> Coordinator {
+    return Coordinator(isShown: $isShown,  uiimages: $uiimages, maxImg: self.maxImg)
   }
 }
 
@@ -110,11 +102,13 @@ extension CaptureImageView: UIViewControllerRepresentable {
 struct AddImageBtn: View {
     var text: String?
     var maxImg: Int?
+    //@State var images: [Image] = []
+    @State var uiimages: [UIImage] = []
+    //@State var edituiimage: UIImage?
+    @State var editimagepos: Int?
+    @State var showCaptureImageView: Bool = false
+    @State var presentForm: Bool = false
     var parentWidth: CGFloat
-    @State var uiimages: [UIImage] = [UIImage]()
-    @State var editimagepos: Int = -1
-    @State var showCaptureImageView: ActiveSheet = .selectimg
-    @State var showSheet: Bool = false
     private func rowCounts() -> [Int] {
         AddImageBtn.rowCounts(total: self.uiimages.count, parentWidth: parentWidth)
     }
@@ -132,7 +126,6 @@ struct AddImageBtn: View {
     }
     var body: some View {
         VStack{
-            //Text("IMAGE COUNT: \(self.uiimages.count)")
             if(self.uiimages.count > 0){
                 ForEach(0 ..< self.rowCounts().count, id: \.self) { rowIndex in
                     HStack {
@@ -144,94 +137,106 @@ struct AddImageBtn: View {
                                 .clipShape(Rectangle())
                                 .overlay(Rectangle().stroke(Color.white, lineWidth: 2))
                                 .shadow(radius: 3)
-                                Button(action: { }, label: {
+                                Button(action: {
+                                    //self.edituiimage = self.uiimages[self.imagepos(rowCounts: self.rowCounts(), rowIndex: rowIndex, itemIndex: itemIndex)]
+                                    
+                                    //let cropViewController = Mantis.cropViewController(image: self.uiimages[self.imagepos(rowCounts: self.rowCounts(), rowIndex: rowIndex, itemIndex: itemIndex)])
+                                    //let cropingImg = CropingImg()
+                                    //cropViewController.delegate = cropingImg
+                                    //cropingImg.present(cropViewController, animated: true)
+                                    
+                                }, label: {
                                     Image("Artboard 84")
                                     .resizable()
                                     .accentColor(Color.white)
                                     .frame(width:16, height:16)
                                     .background(Color.main)
                                     .clipShape(Circle())
+                                    //.offset(x: -10, y: -10)
                                 }).onTapGesture {
                                     self.uiimages.remove(at: self.imagepos(rowCounts: self.rowCounts(), rowIndex: rowIndex, itemIndex: itemIndex))
                                 }
-                               /* Button(action: {}){
+                                Button(action: {}, label: {
                                     Image(systemName: "crop.rotate")
-                                        .resizable()
-                                        .accentColor(Color.white)
-                                        .frame(width:18, height:18)
-                                        .background(Color.main)
-                                        .clipShape(Circle())
-                                }.onTapGesture {
+                                    .resizable()
+                                    .accentColor(Color.white)
+                                    .frame(width:16, height:16)
+                                    .background(Color.main)
+                                    .clipShape(Circle())
+                                    //.offset(x: -10, y: -10)
+                                }).onTapGesture {
                                     self.editimagepos = self.imagepos(rowCounts: self.rowCounts(), rowIndex: rowIndex, itemIndex: itemIndex)
-                                    //debugPrint("editimagepos: ",self.editimagepos)
-                                    self.showSheet.toggle()
-                                    self.showCaptureImageView = ActiveSheet.cutimg
-                                }.offset(x: 0, y: 70)*/
+                                    self.presentForm.toggle()
+                                }
+                                    .offset(x: 0, y: 70)
                             }
                             
                         }
                         Spacer()
                         //floor(self.parentWidth/94)
                         if(CGFloat(self.rowCounts()[rowIndex]) < 4){
-                            //Button(action: { }) {
+                            Button(action: { }) {
                                 HStack(spacing: 4) {
                                     Image(systemName: "plus")
                                     Text(self.text ?? "Add item")
-                                }.onTapGesture {
-                                    self.showSheet.toggle()
-                                    self.showCaptureImageView = ActiveSheet.selectimg
                                 }
-                                .foregroundColor(.maintext)
-                                .font(.textsmall)
-                                .padding(5)
-                                .frame(width:90, height:90)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 0)
-                                        .strokeBorder(
-                                            style: StrokeStyle(
-                                                lineWidth: 2,
-                                                dash: [15]
-                                            )
+                            }.onTapGesture {
+                                self.showCaptureImageView.toggle()
+                            }
+                            .foregroundColor(.maintext)
+                            .font(.textsmall)
+                            .padding(5)
+                            .frame(width:90, height:90)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 0)
+                                    .strokeBorder(
+                                        style: StrokeStyle(
+                                            lineWidth: 2,
+                                            dash: [15]
                                         )
-                                        .foregroundColor(.border)
-                                )
-                            //}
+                                    )
+                                    .foregroundColor(.border)
+                            )
                         }
                     }.padding(.vertical, 4)
                 }
+                /*ForEach(0 ..< self.images.count, id: \.self) { rowIndex in
+                    self.images[rowIndex].resizable()
+                    .frame(width: 90, height: 90)
+                    .clipShape(Rectangle())
+                    .overlay(Rectangle().stroke(Color.white, lineWidth: 2))
+                    .shadow(radius: 3)
+                }*/
             }
             if(self.uiimages.count == 0 || (self.uiimages.count > 0 && self.uiimages.count % 4 == 0)){
-                //Button(action: {}) {
+                Button(action: {}) {
                     HStack(spacing: 4) {
                         Image(systemName: "plus")
                         Text(text ?? "Add item")
-                    }.onTapGesture {
-                        self.showSheet.toggle()
-                        self.showCaptureImageView = ActiveSheet.selectimg
                     }
-                    .foregroundColor(.maintext)
-                    .font(.textsmall)
-                    .padding(5)
-                    .frame(width:90, height:90)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 0)
-                            .strokeBorder(
-                                style: StrokeStyle(
-                                    lineWidth: 2,
-                                    dash: [15]
-                                )
+                }.onTapGesture {
+                    self.showCaptureImageView.toggle()
+                }
+                .foregroundColor(.maintext)
+                .font(.textsmall)
+                .padding(5)
+                .frame(width:90, height:90)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 0)
+                        .strokeBorder(
+                            style: StrokeStyle(
+                                lineWidth: 2,
+                                dash: [15]
                             )
-                            .foregroundColor(.border)
-                    )
-                //}
+                        )
+                        .foregroundColor(.border)
+                )
             }
-        }.sheet(isPresented: $showSheet) {
-            if(self.showCaptureImageView == ActiveSheet.selectimg){
-                CaptureImageView(isShown: self.$showSheet, uiimages: self.$uiimages, showCaptureImageView: self.$showCaptureImageView, maxImg: self.maxImg)
-            }else if(self.showCaptureImageView == ActiveSheet.cutimg){
-                CropImageForm(uiimage: self.$uiimages[self.uiimages.count - 1])
+            if (showCaptureImageView) {
+                CaptureImageView(isShown: $showCaptureImageView, uiimages: $uiimages, maxImg: self.maxImg)
             }
-            
+        }.sheet(isPresented: $presentForm) {
+            CropImageForm(uiimage: self.$uiimages[self.editimagepos!])
         }
     }
 }
@@ -239,10 +244,12 @@ struct AddImageBtn: View {
 struct CropImageForm: View {
     @Binding var uiimage: UIImage
     var body: some View {
-        VStack{
-            CropingImageView(uiimage: $uiimage)
-            Spacer()
-        }
+        //ScrollView(showsIndicators: false) {
+            VStack{
+                CropingImageView(uiimage: $uiimage)
+                Spacer()
+            }
+        //}
     }
 }
 extension AddImageBtn {
@@ -250,22 +257,23 @@ extension AddImageBtn {
         let tagWidth: CGFloat = 94
         var currentLineTotal: CGFloat = 0
         var currentRowCount: Int = 0
-        var result: [Int] = [Int] ()
-        if(total > 0 ){
-            for _ in (0...total-1) {
-                let effectiveWidth = tagWidth
-                if currentLineTotal + effectiveWidth <= parentWidth {
-                    currentLineTotal += effectiveWidth
-                    currentRowCount += 1
-                    guard result.count != 0 else { result.append(1); continue }
-                    result[result.count - 1] = currentRowCount
-                } else {
-                    currentLineTotal = effectiveWidth
-                    currentRowCount = 1
-                    result.append(1)
-                }
+        var result: [Int] = []
+        
+        for _ in (0...total - 1) {
+            let effectiveWidth = tagWidth
+                //* CGFloat(index + 1)
+            if currentLineTotal + effectiveWidth <= parentWidth {
+                currentLineTotal += effectiveWidth
+                currentRowCount += 1
+                guard result.count != 0 else { result.append(1); continue }
+                result[result.count - 1] = currentRowCount
+            } else {
+                currentLineTotal = effectiveWidth
+                currentRowCount = 1
+                result.append(1)
             }
         }
+        //print(result)
         return result
     }
 }

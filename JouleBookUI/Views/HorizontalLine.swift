@@ -31,19 +31,7 @@ struct HorizontalLine: View {
         HorizontalLineShape().fill(self.color!).frame(minWidth: 0, maxWidth: .infinity, minHeight: height, maxHeight: height)
     }
 }
-struct VerticalLine: View {
-    private var color: Color? = nil
-    private var width: CGFloat = 1.0
 
-    init(color: Color, width: CGFloat = 1.0) {
-        self.color = color
-        self.width = width
-    }
-
-    var body: some View {
-        HorizontalLineShape().fill(self.color!).frame(minWidth: width, maxWidth: width, minHeight: 0, maxHeight: .infinity)
-    }
-}
 struct HorizontalLine_Previews: PreviewProvider {
     static var previews: some View {
         HorizontalLine(color: .red)

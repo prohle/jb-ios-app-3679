@@ -25,7 +25,6 @@ where Data : RandomAccessCollection, Content : View, Data.Element : Identifiable
     private let hSpacing: CGFloat
     private let vPadding: CGFloat
     private let hPadding: CGFloat
-    private let geometry: GeometryProxy
     
     private let data: [Data.Element]
     private let content: (Data.Element) -> Content
@@ -51,7 +50,6 @@ where Data : RandomAccessCollection, Content : View, Data.Element : Identifiable
                 hSpacing: CGFloat = 10,
                 vPadding: CGFloat = 10,
                 hPadding: CGFloat = 10,
-                geometry:GeometryProxy,
                 content: @escaping (Data.Element) -> Content) {
         self.data = data.map { $0 }
         self.content = content
@@ -61,7 +59,6 @@ where Data : RandomAccessCollection, Content : View, Data.Element : Identifiable
         self.hSpacing = hSpacing
         self.vPadding = vPadding
         self.hPadding = hPadding
-        self.geometry = geometry
     }
     
     // MARK: - COMPUTED PROPERTIES
@@ -81,7 +78,7 @@ where Data : RandomAccessCollection, Content : View, Data.Element : Identifiable
     /// Declares the content and behavior of this view.
     public var body : some View {
         
-        //GeometryReader { geometry in
+        GeometryReader { geometry in
             
             //ScrollView(showsIndicators: true) {
                 
@@ -89,20 +86,20 @@ where Data : RandomAccessCollection, Content : View, Data.Element : Identifiable
                     
                     ForEach((0..<self.rows).map { GridCollectionIndex(id: $0) }) { row in
                         self.rowAtIndex(row.id * self.cols,
-                                        geometry: self.geometry)
+                                        geometry: geometry)
                     }
                     
                     // Handle last row
                     if (self.data.count % self.cols > 0) {
                         self.rowAtIndex(self.cols * self.rows,
-                                        geometry: self.geometry,
+                                        geometry: geometry,
                                         isLastRow: true)
                     }
-                }.padding(self.hPadding)
+                }
             /*}
             .padding(.horizontal, self.hPadding)
             .padding(.vertical, self.vPadding)*/
-        //}
+        }
     }
     
     // MARK: - Row at Index FUNCTIONS

@@ -28,8 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         //BaseView().environmentObject(ViewRouter())
             //let contentView = StartOnboardView()
             //let onboard = UserOnboard()
-        let viewrouter = ViewRouter()
-        let locationupdate = LocationUpdate()
+            let viewrouter = ViewRouter()
         let keychain = Keychain(service: "ISOWEB.JouleBookUI")
         let token = try! keychain.getString("access_token") ?? ""
         //let rereshToken = try! keychain.getString("refresh_token") ?? ""
@@ -45,7 +44,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use a UIHostingController as window root view controller
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: BaseView().environmentObject(viewrouter).environmentObject(locationupdate))
+            
+            window.rootViewController = UIHostingController(rootView: BaseView().environmentObject(viewrouter))
             /*if(viewrouter.loggedIn == true){
                 window.rootViewController = UIHostingController(rootView: StartView().environmentObject(viewrouter))
             }else{

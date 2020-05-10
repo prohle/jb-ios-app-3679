@@ -13,7 +13,7 @@ struct MainMenu: View {
     var body: some View {
         VStack(alignment:.leading,spacing: 0){
             HStack{
-                CircleImage(imageUrl: dealDatas[0].attach_1_url,size:36)
+                CircleImage(imageUrl: dealDatas[0].attachUrl1,size:36)
                 VStack{
                     Text("Pham Van Mong").font(.subheadline).bold().foregroundColor(Color.maintext)
                 IconText(imageIconLeft:"app_icon",imageIconRight:"app_icon",text:"test",iconLeftSize:20,iconRightSize:10)

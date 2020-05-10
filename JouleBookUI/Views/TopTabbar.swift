@@ -24,9 +24,7 @@ struct MainTopTabbar: View {
     var body: some View {
                 HStack{
                     Button(action: {
-                        self.viewRouter.objectId = 169
-                        self.viewRouter.currentPage = "dealdetail"
-                        //print("Edit button pressed...")
+                        print("Edit button pressed...")
                     }) {
                         Image( "Artboard 4")
                             .resizable()
@@ -35,7 +33,7 @@ struct MainTopTabbar: View {
                             .accentColor(Color.main)
                     }
                     Button(action: {
-                        self.viewRouter.currentPage = "chatui"
+                        print("Edit button pressed...")
                     }) {
                         Image("Artboard 5")
                            .resizable() .imageScale(.small).frame(width:20,height:20).accentColor(Color.main)
@@ -50,13 +48,6 @@ struct MainTopTabbar: View {
                         print("Edit button pressed...")
                     }) {
                         Image("Artboard 7").resizable().imageScale(.small)
-                            .frame(width:20,height:20)
-                            .accentColor(Color.main)
-                    }
-                    Button(action: {
-                        self.viewRouter.currentPage = "instanthelp"
-                    }) {
-                        Image(systemName: "bolt.circle").resizable().imageScale(.small)
                             .frame(width:20,height:20)
                             .accentColor(Color.main)
                     }

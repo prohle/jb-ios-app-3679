@@ -1,28 +1,19 @@
-//
-//  AppDelegate.swift
-//  JouleBookUI
-//
-//  Created by Pham Van Mong on 2/7/20.
-//  Copyright © 2020 Pham Van Mong. All rights reserved.
-//
-
 import UIKit
 import GoogleMaps
 import GooglePlaces
 import Stripe
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+        GMSServices.provideAPIKey("AIzaSyCClH3oApySLIL0v6_80BmQYoV4KhVrHcI")
+        GMSPlacesClient.provideAPIKey("AIzaSyCClH3oApySLIL0v6_80BmQYoV4KhVrHcI")
+        Stripe.setDefaultPublishableKey("pk_test_RRim8foJWm0Esp3yjoHoYiGq00mOftEbda")
         return true
     }
 
     // MARK: UISceneSession Lifecycle
-
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.
         // Use this method to select a configuration to create the new scene with.
@@ -37,4 +28,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
-

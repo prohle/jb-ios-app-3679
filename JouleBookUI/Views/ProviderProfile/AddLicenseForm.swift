@@ -10,20 +10,27 @@ import SwiftUI
 import Alamofire
 import KeychainAccess
 struct AddLicenseForm: View {
-    @Binding  var licenseObj : ProviderLicense
-    @Binding var showSheet: Bool
+    //@Binding var licenseId: Int
+    @EnvironmentObject var viewRouter: ViewRouter
+    @State  var licenseObj : ProviderLicense
+    //@ObservedObject var licenseObj = ProviderLicenseObservable()
     let states = ["State 1", "State 2", "State 3"]
-    @ObservedObject var expirationDate : RKManager = RKManager(calendar: Calendar.current, minimumDate: Date(), maximumDate: Date().addingTimeInterval(60*60*24*1000),  mode: 0)
+    @State private var birthDate = Date()
     @State private var selectedState = 0
-    //@State private var saveButtonText: String = "Save License"
+    static let taskDateFormat: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.dateFormat = "MM-DD-YYYY"
+        return formatter
+    }()
     var body: some View {
-        //NavigationView {
+        NavigationView {
                 Form{
                     Section{
                         HStack{
                             TextBody(text: "License Name")
                             Spacer()
-                            TextField("Set License Name", text: $licenseObj.license_name ?? "")
+                            TextField("Set License Name", text: $licenseObj.licenseName)
                                 .font(.textbody)
                                 .foregroundColor(Color.maintext)
                                 .multilineTextAlignment(.trailing)
@@ -33,7 +40,7 @@ struct AddLicenseForm: View {
                         HStack{
                             TextBody(text: "License Number")
                             Spacer()
-                            TextField("Set License Number", text: $licenseObj.license_number ?? "")
+                            TextField("Set License Number", text: $licenseObj.licenseNumber)
                                 .font(.textbody)
                                 .foregroundColor(Color.maintext)
                                 .multilineTextAlignment(.trailing)
@@ -46,42 +53,53 @@ struct AddLicenseForm: View {
                             }
                         }
                         .pickerStyle(DefaultPickerStyle())
-                        HStack{
-                            IconText(imageIconLeft: nil,text: "Expiration Date", iconLeftSize: 16, color: Color.maintext)
-                            Spacer()
-                            DateSelectorModal(monthIndex: 0).environmentObject(self.expirationDate)
-                        }
-                        /*DatePicker(selection: $birthDate, in: ...Date(), displayedComponents: .date) {
+                        DatePicker(selection: $birthDate, in: ...Date(), displayedComponents: .date) {
                             TextBody(text: "Expiration Date")
-                        }*/
-                        BasicButton(btnText:"Save License",imageName: nil,iconWidth:18, iconHeight:18,isActive: true,paddingH: CGFloat(5.00),paddingV:CGFloat(5.00),fontSize: .textbody)
-                            .onTapGesture {
-                                if self.licenseObj.saveLicense(expirationDate: self.expirationDate) {
-                                    self.showSheet = false
-                                }
                         }
                     }
-                }.onTapGesture {
-                    self.endEditing()
                 }
-            /*.navigationViewStyle(StackNavigationViewStyle())
+            .navigationViewStyle(StackNavigationViewStyle())
             .navigationBarTitle("", displayMode: .inline)
-                .navigationBarItems(leading: LicenseHomeLeftTopTabbar(), trailing: LicenseTopSaveTabbar(licenseObj: self.$licenseObj,expirationDate: self.expirationDate))
+            .navigationBarItems(leading: LicenseHomeLeftTopTabbar(), trailing: LicenseTopSaveTabbar())
             
-        }*/
+        }.onAppear(perform: getUserLicense)
+        .onDisappear {
+            print("ContentView disappeared!")
+        }
     }
-    
-    func endEditing(){
-        UIApplication.shared.endEditing()
+    func getUserLicense(){
+        //self.licenseObj.licenseNumber = "1234"
+        //self.licenseObj.licenseName = "test"
+        let keychain = Keychain(service: "ISOWEB.JouleBookUI")
+        let interceptor = RequestInterceptor(storage: keychain, viewrouter: viewRouter)
+        AF.request("https://api-gateway.joulebook.com/api-gateway/user/v1.0/users/licenses",
+        method: .get,
+        //parameters: {},
+        //encoder: JSONParameterEncoder.default,
+        interceptor: interceptor
+        
+        ).validate(statusCode: 200..<300)
+        .validate(contentType: ["application/json"])
+        .responseJSON{response in
+            switch response.result{
+            case .failure(let f):
+                self.viewRouter.currentPage = "home"
+                //debugPrint(response)
+                break
+            case .success(let s):
+                print(">> SUCCESS: ",s)
+                debugPrint(response)
+                break
+            }
+        }
     }
 }
 struct LicenseTopSaveTabbar: View {
-    @Binding  var licenseObj : ProviderLicense
-    var expirationDate : RKManager
+    //var providerProfileModel: ProviderProfileModel
     var body: some View {
         HStack{
             Button(action: {
-                self.licenseObj.saveLicense(expirationDate: self.expirationDate)
+                //debugPrint(self.providerProfileModel.skillsOne.count)
             }) {
                 Image( "Artboard 8")
                     .resizable()
@@ -104,9 +122,9 @@ struct LicenseHomeLeftTopTabbar: View {
         }
     }
 }
-/*
+
 struct AddLicenseForm_Previews: PreviewProvider {
     static var previews: some View {
         AddLicenseForm(licenseObj: ProviderLicense(id: 2,state: "ste", licenseNumber: "12345", licenseName: "Test", expirationDate: "2020-04-30 00:00:00", description: ""))
     }
-}*/
+}

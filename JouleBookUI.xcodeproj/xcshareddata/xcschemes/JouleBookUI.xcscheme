@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2C49809A23ED0A8100F2FB33"
-               BuildableName = "JouleBook.app"
+               BuildableName = "JouleBookUI.app"
                BlueprintName = "JouleBookUI"
                ReferencedContainer = "container:JouleBookUI.xcodeproj">
             </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2C49809A23ED0A8100F2FB33"
-            BuildableName = "JouleBook.app"
+            BuildableName = "JouleBookUI.app"
             BlueprintName = "JouleBookUI"
             ReferencedContainer = "container:JouleBookUI.xcodeproj">
          </BuildableReference>
@@ -89,7 +89,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2C49809A23ED0A8100F2FB33"
-            BuildableName = "JouleBook.app"
+            BuildableName = "JouleBookUI.app"
             BlueprintName = "JouleBookUI"
             ReferencedContainer = "container:JouleBookUI.xcodeproj">
          </BuildableReference>

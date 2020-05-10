@@ -59,6 +59,6 @@ struct ImageUrl: View {
 //.frame(width: width, height: height)
 struct ImageUrl_Previews: PreviewProvider {
     static var previews: some View {
-        ImageUrl(imageUrl: dealDatas[0].attach_1_url)
+        ImageUrl(imageUrl: dealDatas[0].attachUrl1)
     }
 }

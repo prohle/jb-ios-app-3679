@@ -9,8 +9,8 @@
 import SwiftUI
 
 struct MyProfile: View {
-    @ObservedObject var dobRKManager : RKManager = RKManager(calendar: Calendar.current, minimumDate: "01/01/1900".localDateStrToDate(), maximumDate: Date(),  mode: 0)
-    @State var userProfile:UserProfile = UserProfile()
+    
+    @ObservedObject private var myProfileModel = MyProfileModel()
     @EnvironmentObject var viewRouter: ViewRouter
     var body: some View {
         NavigationView {
@@ -40,17 +40,13 @@ struct MyProfile: View {
                         Spacer()
                     }.padding([.vertical],CGFloat.stVpadding)
                         .background(Color.mainback)
-                    HStack{
-                        TextBody(text: "DOB")
-                        Spacer()
-                        DateSelectorModal(monthIndex: 0).environmentObject(self.dobRKManager)
-                    }
+                    
                 }
                 Group{
                     HStack{
                         TextBody(text: "First Name")
                         Spacer()
-                        TextField("", text:$userProfile.first_name ?? "")
+                        TextField("Peter", text:$myProfileModel.firstName)
                             .font(.textbody)
                             .multilineTextAlignment(.trailing)
                             .autocapitalization(.none)
@@ -61,7 +57,7 @@ struct MyProfile: View {
                     HStack{
                         TextBody(text: "Midle Name")
                         Spacer()
-                        TextField("", text:$userProfile.middle_name ?? "")
+                        TextField("Carter", text:$myProfileModel.midleName)
                             .font(.textbody)
                             .multilineTextAlignment(.trailing)
                             .autocapitalization(.none)
@@ -71,7 +67,7 @@ struct MyProfile: View {
                     HStack{
                         TextBody(text: "Last Name")
                         Spacer()
-                        TextField("", text:$userProfile.last_name ?? "")
+                        TextField("Mong", text:$myProfileModel.lastName)
                             .font(.textbody)
                             .multilineTextAlignment(.trailing)
                             .autocapitalization(.none)
@@ -79,15 +75,13 @@ struct MyProfile: View {
                         
                     }
                     HorizontalLine(color: .border)
-                }
-                Group{
                     HStack{
                         TextBody(text: "Email")
                         Spacer()
                         VStack{
-                            TextField("", text:$userProfile.email ?? "")
+                            TextField("Email", text:$myProfileModel.emailAdr)
                                 .font(.textbody)
-                                .disabled(true)
+                                .multilineTextAlignment(.trailing)
                                 .autocapitalization(.none)
                                 .padding(2)
                             //Text(myProfileModel.emailMessage).font(Font.textsmall).foregroundColor(.red)
@@ -98,14 +92,16 @@ struct MyProfile: View {
                         TextBody(text: "Mobile Number")
                         Spacer()
                         VStack{
-                            TextField("", text:$userProfile.mobile_number ?? "")
+                            TextField("Mobile Number", text:$myProfileModel.mobileNum)
                                 .font(.textbody)
-                                .disabled(true)
+                                .multilineTextAlignment(.trailing)
                                 .autocapitalization(.none)
                             .padding(2)
                             //Text(myProfileModel.mobileMessage).font(Font.textsmall).foregroundColor(.red)
                         }
                     }
+                }
+                Group{
                     Button(action: {
                         self.viewRouter.currentPage = "providerprofile"
                     },
@@ -114,47 +110,21 @@ struct MyProfile: View {
                     })
                     
                 }
-            }.onAppear(perform: {
-                self.getUserProfile()
-            })
+            }
         }.padding([.horizontal],CGFloat.stHpadding)
         .padding([.vertical],CGFloat.stVpadding)
         .background(Color.mainback)
             }
-            .onTapGesture {
-                self.endEditing()
-            }
             .navigationViewStyle(StackNavigationViewStyle())
             .navigationBarTitle("", displayMode: .inline)
-        .navigationBarItems(leading: MyProfileHomeLeftTopTabbar(), trailing: MyProfileTopSaveTabbar(userProfile: self.$userProfile).environmentObject(self.viewRouter)).environmentObject(self.dobRKManager)
+            .navigationBarItems(leading: MyProfileHomeLeftTopTabbar(), trailing: MyProfileTopSaveTabbar())
         }
-    }
-    func getUserProfile(){
-        APIClient.getUserProfile(){ result in
-            switch result {
-                case .success(let userProfile):
-                    print("______________UserProfile_______________")
-                    self.userProfile = userProfile.data
-                    self.dobRKManager.selectedDate = self.userProfile.date_of_birth?.utcDateTimeStrToDate()
-                case .failure(let error):
-                    print(error)
-            }
-            
-        }
-    }
-    func endEditing(){
-        UIApplication.shared.endEditing()
     }
 }
 struct MyProfileTopSaveTabbar: View {
-    @EnvironmentObject var viewRouter: ViewRouter
-    @Binding var userProfile:UserProfile
-    @EnvironmentObject var dobRKManager : RKManager
     var body: some View {
         HStack{
             Button(action: {
-                self.userProfile.date_of_birth = self.dobRKManager.selectedDate?.toUTCDateTimeStr() ?? Date().toUTCDateTimeStr()
-                self.userProfile.submitMyProfileUpdate()
                 print("Edit button pressed...")
             }) {
                 Image( "Artboard 8")

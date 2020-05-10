@@ -93,7 +93,7 @@ struct Buttons_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             NormalButton(btnText: "+ Test",fontSize: .body, textColor: Color.main, borderColor: Color.main, paddingH: CGFloat(5.00),paddingV: CGFloat(5.00),radius: CGFloat(5.00))
-            BasicButton(btnText:"Hello",imageName: nil,iconWidth:18, iconHeight:18,isActive: false,paddingH: CGFloat(5.00),paddingV:CGFloat(5.00),fontSize: .footnote)
+            //BasicButton(btnText:"Hello",imageName: nil,iconWidth:18, iconHeight:18,isActive: false,paddingH: CGFloat(5.00),paddingV:CGFloat(5.00),fontSize: .footnote)
         }
         .previewLayout(.fixed(width: 190, height: 45))
         

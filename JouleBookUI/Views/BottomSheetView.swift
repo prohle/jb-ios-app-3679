@@ -52,7 +52,7 @@ struct BottomSheetView<Content: View>: View {
             VStack(spacing: 0) {
                 self.indicator.padding()
                 self.content
-            }  
+            }
             .frame(width: geometry.size.width, height: self.maxHeight, alignment: .top)
             .background(Color.white)
             .cornerRadius(Constants.radius)

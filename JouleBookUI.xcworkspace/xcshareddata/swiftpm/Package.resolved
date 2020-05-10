@@ -2,39 +2,12 @@
   "object": {
     "pins": [
       {
-        "package": "AMPopTip",
-        "repositoryURL": "https://github.com/andreamazz/AMPopTip.git",
-        "state": {
-          "branch": null,
-          "revision": "2160338b7940a20ee0e2907c386514c8bf8c3c04",
-          "version": "4.5.0"
-        }
-      },
-      {
         "package": "ClockTimePicker",
         "repositoryURL": "https://github.com/workingDog/ClockTimePicker.git",
         "state": {
           "branch": null,
           "revision": "ae52aa5a2ba15436049faec86d45c9de03294581",
           "version": "1.0.3"
-        }
-      },
-      {
-        "package": "KeychainAccess",
-        "repositoryURL": "https://github.com/kishikawakatsumi/KeychainAccess.git",
-        "state": {
-          "branch": null,
-          "revision": "b920ad7df3c73189dcdd4aa05c540849b2010dbf",
-          "version": "4.1.0"
-        }
-      },
-      {
-        "package": "Mantis",
-        "repositoryURL": "https://github.com/guoyingtao/Mantis.git",
-        "state": {
-          "branch": null,
-          "revision": "b5c0dcbf366b1390274a3d8092faa2725e02dc35",
-          "version": "1.0.0"
         }
       },
       {

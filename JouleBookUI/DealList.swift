@@ -7,187 +7,100 @@
 //
 
 import SwiftUI
-import Combine
 import Alamofire
 import KeychainAccess
-import GoogleMaps
 struct DealList: View {
     @EnvironmentObject var viewRouter: ViewRouter
-    @EnvironmentObject var locationUpdate: LocationUpdate
-    @ObservedObject var observed: DealsObserver = DealsObserver()
-        //DealsObserver(lat: locationUpdate.location?.latitude , lon: locationUpdate.location?.longitude)
-    //var latitude: Double  { return locationUpdate.location?.latitude ?? 0 }
-    //var longitude: Double { return locationUpdate.location?.longitude ?? 0 }
-    @State private var scrollViewContentOffset = CGFloat(0)
-    @State private var page: Int = 1
-    //var placemark: String { return("\(locationUpdate.placemark?.description ?? "XXX")") }
+    @State var arrDeal: [Deal]?
     var body: some View {
         NavigationView {
-            GeometryReader { geometry in
-                TrackableScrollView(.vertical, contentOffset: self.$scrollViewContentOffset, itemHeight:Int.dealItemHeight, itemsLimit:Int.dealItemsLimit,itemPerRow:2, page: self.$observed.page) {
-                    VStack{
-                        HStack{Spacer()}
-                        
-                        GridCollection(self.observed.deals, columns: 2, vSpacing: 10, hSpacing: 10, vPadding: 0, hPadding: 10, geometry: geometry) {
-                            ItemDealListRow(dealObject: $0).environmentObject(self.viewRouter)
-                        }
-                        Text("Content page: \(Int(self.observed.page))").font(.title)
-                        
-                        //Text("Content offset 2: \(Int(self.scrollViewContentOffset))").font(.title)
-                    }
+            VStack{
+                GridCollection(arrDeal!, columns: 2, vSpacing: 10, hSpacing: 10, vPadding: 0, hPadding: 0) {
+                    ItemDealListRow(dealObject: $0)
                 }
-            }
+                Spacer()
+                Button(
+                    action: {
+                        self.loadDeals()
+                    },
+                    label: {
+                        Text("Test").font(.footnote).fontWeight(.regular).foregroundColor(Color.subtext)
+                    }
+                ).frame(height: 50)
+            }.padding([.horizontal],CGFloat.stHpadding)
+            .padding([.vertical],CGFloat.stVpadding)
             .navigationViewStyle(StackNavigationViewStyle())
             .navigationBarTitle("", displayMode: .inline)
             .navigationBarItems(leading: HomeLeftTopTabbar(), trailing: MainTopTabbar())
-        }.onAppear(perform: {
-            debugPrint("Location -  /DealList ", self.locationUpdate.location?.latitude ?? 0)
-            //self.observed.latitude = self.locationUpdate.location?.latitude ?? 0
-            //self.observed.longitude = self.locationUpdate.location?.longitude ?? 0
-            self.observed.page = 0
-        })
-        //.onAppear(perform: {self.observed.getDeals(latitude: self.latitude, longitude: self.longitude)})
+        }
+        /*VStack{
+            List(dealDatas){dealData in
+                NavigationLink(destination: DealDetail(deal: dealData)){
+                    ItemDealListRow(dealObject: dealData)
+                }
+            }
+        }*/
+        
     }
-    
+    func loadDeals(){
+        let keychain = Keychain(service: "ISOWEB.JouleBookUI")
+        let interceptor = RequestInterceptor(storage: keychain, viewrouter: viewRouter)
+        let glocation: Glocation = Glocation(lat: 20.66, lon: 12.75)
+        let geoDistance: GeoDistance = GeoDistance(distance: "12000km", location: glocation)
+        let updatedTimeStamp: UpdatedTimeStamp = UpdatedTimeStamp(gt: "20200120T000000.111Z", lt: "20210120T000000.111Z")
+        let range: RangeParam = RangeParam(last_updated_timestamp: updatedTimeStamp)
+        let filterParam: FilterParam = FilterParam(range: range)
+        let boolParam: BoolParam = BoolParam(filter: [filterParam])
+        let queryParam: QueryParam = QueryParam(bool: boolParam)
+        let parameters: SearchQuery = SearchQuery(size: 10,from: 0,query: queryParam)
+        AF.request("https://api-gateway.joulebook.com/api-gateway/deals/_search",
+        method: .post,
+        parameters: parameters,
+        encoder: JSONParameterEncoder.default,
+        //headers: heads,
+        interceptor: interceptor
+        
+        ).validate(statusCode: 200..<300)
+        .validate(contentType: ["application/json"])
+        .responseJSON{response in
+            switch response.result{
+            case .failure(let f):
+               debugPrint(response)
+            case .success(let s):
+                print(">> SUCCESS: ",s)
+            }
+            //debugPrint(response)
+        }
+    }
 }
 struct SearchQuery: Encodable {
     let size: Int
     let from: Int
-    let cat: Int
-    let q: String
-    let northeast:Glocation
-    let southwest:Glocation
-    let latlng:Glocation
+    let query: QueryParam
+}
+struct QueryParam: Encodable{
+    let bool: BoolParam
+}
+struct BoolParam: Encodable{
+    let filter : [FilterParam]
+}
+struct FilterParam: Encodable{
+    let range: RangeParam
+}
+struct RangeParam: Encodable{
+    let last_updated_timestamp:UpdatedTimeStamp
+}
+struct UpdatedTimeStamp: Encodable{
+    let gt: String
+    let lt: String
+}
+struct GeoDistance:Encodable{
+    let distance: String
+    let location: Glocation
 }
 struct Glocation: Encodable{
     let lat: Double
     let lon: Double
-}
-class DealsObserver : ObservableObject{
-    let objectWillChange = ObservableObjectPublisher()
-   // @Published var latitude: Double = 0
-    //@Published var longitude: Double = 0
-    var oldPage: Int = -1
-    @Published var page: Int = -1{
-        didSet {
-            if self.page > self.oldPage {
-                debugPrint("Page thay doi - /DealList : ",self.page)
-                self.getDeals()
-                objectWillChange.send()
-            }
-        }
-    }
-    /*
-    private var realPageChangedPublisher: AnyPublisher<Int, Never> {
-        $page.debounce(for: 0.2, scheduler: RunLoop.main).removeDuplicates().map { input in
-            debugPrint("Page thay doi - /DealList : ",self.page)
-            self.getDeals()
-            return input
-        }
-        .eraseToAnyPublisher()
-    }*/
-    /*private var passwordStrengthPublisher: AnyPublisher<PasswordStrength, Never> {
-        
-        $password
-            .debounce(for: 0.2, scheduler: RunLoop.main)
-            .removeDuplicates()
-            .map { input in
-                return Navajo.strength(ofPassword: input)
-        }
-        .eraseToAnyPublisher()
-    }*/
-    /*
-    lazy var status: AnyPublisher<String,Never> = {
-        self.$latitude.combineLatest(self.$longitude.map({ longitude in
-            return "\(self.)"
-            //if self.page > self.oldPage {
-                //debugPrint("Page thay doi - /DealList : ",self.page)
-                
-            //}
-        })
-        .receive(on: DispatchQueue.main)
-        .eraseToAnyPublisher())*/
-        /*self.getDeals()
-        self.objectWillChange.send()**/
-    //}
-    @Published var deals = [Deal](){
-        didSet {
-            debugPrint("deals  thay doi - /DealList : ")
-            objectWillChange.send()
-        }
-    }
-    /*lazy var status: AnyPublisher<Void,Never> = {
-        $latitude
-            .combineLatest($longitude)
-            .combineLatest($page)
-            .map({ latitude, longitude, page in
-                self.getDeals(latitude: latitude, longitude: longitude)
-           })
-           .receive(on: DispatchQueue.main)
-           .eraseToAnyPublisher()
-    }()*/
-    //lat: Double?,lon: Double?
-    init() {
-        //self.latitude = lat
-        //self.longitude = lon
-        //getDeals()
-        //(self.page-1)*Int.dealItemsLimit
-        
-
-
-         
-    }
-    //latitude: Double,longitude: Double
-    func getDeals(){
-        oldPage = page
-        let keychain = Keychain(service: "ISOWEB.JouleBookUI")
-       
-            guard let crrLat = try? keychain.get("current_lat") else {
-                return
-            }
-            guard let crrLon = try? keychain.get("current_lon") else {
-                return
-            }
-            //let crrLat = try? keychain.get("current_lat") ?? ""
-            //let crrLon = try? keychain.get("current_lon") ?? ""
-            let northeast = AppUtils().locationWithBearing(bearing: 45,distanceMeters: 500000,origin: CLLocationCoordinate2D(latitude: (crrLat as NSString).doubleValue, longitude: (crrLon as NSString).doubleValue))
-            let southwest = AppUtils().locationWithBearing(bearing: 225,distanceMeters: 500000,origin: CLLocationCoordinate2D(latitude: (crrLat as NSString).doubleValue, longitude: (crrLon as NSString).doubleValue))
-            APIClient.loadDeals(size: Int.dealItemsLimit, from: ((self.page > 0) ? (self.page-1) : 0)*Int.dealItemsLimit, cat: -1, q: "", northeast: String(northeast.latitude)+","+String(northeast.longitude), southwest: String(southwest.latitude)+","+String(southwest.longitude), latlng: crrLat+","+crrLon){ result in
-                switch result {
-                    case .success(let listDeals):
-                        print("______________Deals_______________")
-                        print(listDeals.data)
-                        self.deals = self.deals.merge(mergeWith: listDeals.data, uniquelyKeyedBy: \.id)
-                        //self.deals = listDeals.data
-                        //print(listDeals)
-                    case .failure(let error):
-                        print(error)
-                }
-                
-            }
-        
-        /*if let listDeals = result {
-            do{
-                print("______________Deals_______________")
-                print(listDeals)
-                //let json = try JSONSerialization.jsonObject(with: data!, options: []) as! [[String:AnyObject]]
-                //print("JSON IS ",json)
-            }catch let DecodingError.dataCorrupted(context) {
-                print(context)
-            } catch let DecodingError.keyNotFound(key, context) {
-                print("Key '\(key)' not found:", context.debugDescription)
-                print("codingPath:", context.codingPath)
-            } catch let DecodingError.valueNotFound(value, context) {
-                print("Value '\(value)' not found:", context.debugDescription)
-                print("codingPath:", context.codingPath)
-            } catch let DecodingError.typeMismatch(type, context)  {
-                print("Type '\(type)' mismatch:", context.debugDescription)
-                print("codingPath:", context.codingPath)
-            } catch {
-                print("error: ", error)
-            }
-        }*/
-    }
 }
 /*
 struct DealList_Previews: PreviewProvider {
