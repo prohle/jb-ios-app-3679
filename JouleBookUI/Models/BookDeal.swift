@@ -113,17 +113,16 @@ class BookDealObservable: ObservableObject {
         }
     }
     func mulBookDeal(){
-        //let mulBookDealQuery = BookDealQuery(address: String, building: <#String#>, city: <#String#>, floor: <#String#>, latitude: <#String#>, longitude: <#String#>, state: <#String#>, unit: <#String#>, zip_code: <#String#>)
-        let mulBookDealQuery = [BookDealQuery]()
+        var mulBookDealQuery = [BookDealQuery]()
         if self.selectedTimeSlots.count > 0 {
             for slot in self.selectedTimeSlots {
-                let bookDealQuery = BookDealQuery(address: self.selectedAddress.address,address_type: self.selectedAddress.address_type, buyer_id: dealObj.user_id, city: self.selectedAddress.city ?? "", deal_location_type: self.selectedAddress.address_type,deal_slot_id: self.slot.id ?? 0, latitude: self.selectedAddress.latitude, longitude: self.selectedAddress.longitude,quantity: 1,state: self.selectedAddress.state ?? "" ,zip_code: self.selectedAddress.zip_code ?? "")
+                let bookDealQuery = BookDealQuery(address: self.selectedAddress.address,address_type: self.selectedAddress.address_type, buyer_id: dealObj.user_id, city: self.selectedAddress.city ?? "", deal_location_type: self.selectedAddress.address_type,deal_slot_id: slot.id ?? 0, latitude: self.selectedAddress.latitude, longitude: self.selectedAddress.longitude,quantity: 1,state: self.selectedAddress.state ?? "" ,zip_code: self.selectedAddress.zip_code ?? "")
                 mulBookDealQuery.append(bookDealQuery)
             }
         }
         debugPrint("______________BookDealQuery_______________",mulBookDealQuery)
         if mulBookDealQuery.count > 0 {
-            APIClient.bookDeal(id: self.dealObj.id, bookDealQuery: mulBookDealQuery){result in
+            APIClient.multiBookDeal(id: self.dealObj.id, multiBookDealQuery: mulBookDealQuery){result in
                 switch result {
                     case .success(let emptyWithIdData):
                         debugPrint("______________EmptyWithIdData_______________",emptyWithIdData)
