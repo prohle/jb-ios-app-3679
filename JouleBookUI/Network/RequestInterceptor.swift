@@ -24,13 +24,13 @@ struct TokenMessage:Decodable{
 class RequestInterceptor: Alamofire.RequestInterceptor {
     
     private let storage: Keychain
-    private var viewrouter: ViewRouter
+    //private var viewrouter: ViewRouter
     private typealias RefreshCompletion = (_ succeeded: Bool, _ accessToken: String?, _ refreshToken: String?) -> Void
     private var isRefreshing = false
     private var cantRefresh = false
-    init(storage: Keychain, viewrouter: ViewRouter) {
+    init(storage: Keychain) {
         self.storage = storage
-        self.viewrouter = viewrouter
+        //self.viewrouter = viewrouter
     }
 
     func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
@@ -45,16 +45,36 @@ class RequestInterceptor: Alamofire.RequestInterceptor {
         urlRequest.setValue("client_id_id_client", forHTTPHeaderField: "client_id")
         /// Set the Authorization header value using the access token.
         urlRequest.setValue("Bearer "+token , forHTTPHeaderField: "Authorization")
+        
         completion(.success(urlRequest))
     }
 
     func retry(_ request: Request, for session: Session, dueTo error: Error, completion: @escaping (RetryResult) -> Void) {
-        guard let response = request.task?.response as? HTTPURLResponse, response.statusCode == 400 && self.cantRefresh == false else {
-            /// The request did not fail due to a 401 Unauthorized response.
-            /// Return the original error and don't retry the request.
+        debugPrint("Test resaaaa")
+        
+        /*guard let afError = error.asAFError else{
+            self.isRefreshing = true
+            return completion(.doNotRetryWithError(error))
+        }*/
+        let afError = error.asAFError
+        
+        //
+        //, ((afError.underlyingError as? ServerRestApiError)?.code != "access_token_expire")
+        //debugPrint(afError.underlyingError)
+        if(afError?.underlyingError as? ServerRestApiError)?.code ?? "" != "access_token_expire" {
             self.isRefreshing = true
             return completion(.doNotRetryWithError(error))
         }
+        //debugPrint((afError.underlyingError as! ServerRestApiError).code )
+        /*debugPrint(request.response)
+        //debugPrint(request.task?.response)*
+        guard let response = request.task?.response as? HTTPURLResponse, response.statusCode == 400 && self.cantRefresh == false else {
+            self.isRefreshing = true
+            //stop and logout
+            return completion(.doNotRetryWithError(error))
+        }*/
+        
+        
         /*Use a weak reference whenever it is valid for that reference to become nil at some point during its lifetime.
          Conversely, use an unowned reference when you know that the reference will never be nil once it has been set during initialization.*/
         refreshToken { [weak self] succeeded, accessToken, refreshToken in
@@ -79,9 +99,8 @@ class RequestInterceptor: Alamofire.RequestInterceptor {
                 }
                 completion(.retry)
             }else{
-                strongSelf.cantRefresh = true
-                strongSelf.viewrouter.loggedIn = false
-                strongSelf.viewrouter.currentPage = "signin"
+                //strongSelf.viewrouter.loggedIn = false
+                //strongSelf.viewrouter.currentPage = "signin"
                 do {
                     try strongSelf.storage.set("",key:"access_token")
                     try strongSelf.storage.set("",key:"refresh_token")
@@ -90,22 +109,29 @@ class RequestInterceptor: Alamofire.RequestInterceptor {
                 }
                 completion(.doNotRetryWithError(error))
             }
-            
-            /*
-            switch result {
-            case .success(let token):
-                self.storage.accessToken = token
-                /// After updating the token we can safily retry the original request.
-                completion(.retry)
-            case .failure(let error):
-                completion(.doNotRetryWithError(error))
-            }*/
         }
     }
     private func refreshToken(completion: @escaping RefreshCompletion) {
         guard !self.isRefreshing else { return }
         let refreshtoken = (try? storage.getString("refresh_token")) ??  ""
         guard refreshtoken != "" else { return }
+        APIClient.refreshToken(refreshToken: refreshtoken){result in
+            switch result {
+                case .success(let finalData):
+                    print("________________REFRESHTOKEN_____________")
+                    if finalData.access_token != nil && finalData.access_token != "" {
+                        DispatchQueue.main.async {
+                            completion(true, finalData.access_token, finalData.refresh_token)
+                        }
+                    }else {
+                        completion(false, nil, nil)
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                completion(false, nil, nil)
+            }
+        }
+        /*
         let urlString = "https://api-gateway.joulebook.com/api-gateway/v1.0/user/oauth/token"
         let heads: HTTPHeaders = [
             "Content-Type": "application/x-www-form-urlencoded",
@@ -118,11 +144,12 @@ class RequestInterceptor: Alamofire.RequestInterceptor {
             "client_id": "client_id_id_client"
         ]
         AF.request(urlString,
-                   method: .post,
-                   parameters: parameters,
-                   headers:heads
-                   ).responseJSON { [weak self] response in
-                    debugPrint(response)
+            method: .post,
+            parameters: parameters,
+            headers:heads
+        ).responseJSON { [weak self] response in
+            debugPrint("Test res")
+            debugPrint(response)
             guard let strongSelf = self else { return }
             guard let data = response.data else{ return }
             let finalData = try! JSONDecoder().decode(TokenMessage.self, from: data)
@@ -134,6 +161,6 @@ class RequestInterceptor: Alamofire.RequestInterceptor {
                 completion(false, nil, nil)
             }
             strongSelf.isRefreshing = false
-        }
+        }*/
     }
 }

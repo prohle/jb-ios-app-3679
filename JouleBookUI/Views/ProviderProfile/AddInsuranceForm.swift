@@ -9,23 +9,18 @@
 import SwiftUI
 
 struct AddInsuranceForm: View {
-    @EnvironmentObject var viewRouter: ViewRouter
-    @State  var insuranceObj : ProviderInsurance
-    @State private var birthDate = Date()
-    static let taskDateFormat: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "en_US_POSIX")
-        formatter.dateFormat = "MM-DD-YYYY"
-        return formatter
-    }()
+    @Binding  var insuranceObj : ProviderInsurance
+    @Binding  var showSheet : Bool
+    
+    @ObservedObject var expirationDate : RKManager = RKManager(calendar: Calendar.current, minimumDate: Date(), maximumDate: Date().addingTimeInterval(60*60*24*1000),  mode: 0)
     var body: some View {
-        NavigationView {
+        //NavigationView {
                 Form{
                     Section{
                         HStack{
                             TextBody(text: "Policy Number")
                             Spacer()
-                            TextField("Set Policy Number", text: $insuranceObj.policyNumber)
+                            TextField("Set Policy Number", text: $insuranceObj.policy_number)
                                 .font(.textbody)
                                 .foregroundColor(Color.maintext)
                                 .multilineTextAlignment(.trailing)
@@ -35,37 +30,44 @@ struct AddInsuranceForm: View {
                         HStack{
                             TextBody(text: "Coverage For")
                             Spacer()
-                            TextField("Set Coverage For", text: $insuranceObj.coverageFor)
+                            TextField("Set Coverage For", text: $insuranceObj.coverage_for)
                                 .font(.textbody)
                                 .foregroundColor(Color.maintext)
                                 .multilineTextAlignment(.trailing)
                                 .autocapitalization(.none)
                                 .padding(2)
                         }
-                        DatePicker(selection: $birthDate, in: ...Date(), displayedComponents: .date) {
-                            TextBody(text: "Expiration Date")
+                        HStack{
+                            IconText(imageIconLeft: nil,text: "Expiration Date", iconLeftSize: 16, color: Color.maintext)
+                            Spacer()
+                            DateSelectorModal(monthIndex: 0).environmentObject(self.expirationDate)
+                        }
+                        BasicButton(btnText:"Save Insurance",imageName: nil,iconWidth:18, iconHeight:18,isActive: true,paddingH: CGFloat(5.00),paddingV:CGFloat(5.00),fontSize: .textbody).onTapGesture {
+                            if self.insuranceObj.saveInsurance(expirationDate: self.expirationDate) {
+                                self.showSheet = false
+                            }
                         }
                     }
+                }.onTapGesture {
+                    self.endEditing()
                 }
-            .navigationViewStyle(StackNavigationViewStyle())
+            /*.navigationViewStyle(StackNavigationViewStyle())
             .navigationBarTitle("", displayMode: .inline)
-            .navigationBarItems(leading: InsuranceHomeLeftTopTabbar(), trailing: InsuranceTopSaveTabbar())
+                .navigationBarItems(leading: InsuranceHomeLeftTopTabbar(), trailing: InsuranceTopSaveTabbar(insuranceObj: self.insuranceObj,expirationDate: self.expirationDate))
             
-        }.onAppear(perform: onAppearForm)
-        .onDisappear {
-            print("ContentView disappeared!")
-        }
+        }*/
     }
-    func onAppearForm(){
-        print("ContentView appeared!")
+    func endEditing(){
+        UIApplication.shared.endEditing()
     }
 }
 struct InsuranceTopSaveTabbar: View {
-    //var providerProfileModel: ProviderProfileModel
+    var insuranceObj: ProviderInsurance
+    var expirationDate: RKManager
     var body: some View {
         HStack{
             Button(action: {
-                //debugPrint(self.providerProfileModel.skillsOne.count)
+                self.insuranceObj.saveInsurance(expirationDate: self.expirationDate)
             }) {
                 Image( "Artboard 8")
                     .resizable()

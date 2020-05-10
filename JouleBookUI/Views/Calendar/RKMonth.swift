@@ -42,7 +42,8 @@ struct RKMonth: View {
                                         isDisabled: !self.isEnabled(date: column),
                                         isToday: self.isToday(date: column),
                                         isSelected: self.isSpecialDate(date: column),
-                                        isBetweenStartAndEnd: self.isBetweenStartAndEnd(date: column)),
+                                        isBetweenStartAndEnd: self.isBetweenStartAndEnd(date: column),
+                                        hasEvent: self.isHasEventDate(date: column)),
                                         cellWidth: self.cellWidth)
                                         .onTapGesture { self.dateTapped(date: column) }
                                 } else {
@@ -67,7 +68,7 @@ struct RKMonth: View {
             case 0:
                 if self.rkManager.selectedDate != nil &&
                     self.rkManager.calendar.isDate(self.rkManager.selectedDate, inSameDayAs: date) {
-                    self.rkManager.selectedDate = nil
+                    self.rkManager.selectedDate = date
                 } else {
                     self.rkManager.selectedDate = date
                 }
@@ -173,10 +174,12 @@ struct RKMonth: View {
     func isSpecialDate(date: Date) -> Bool {
         return isSelectedDate(date: date) ||
             isStartDate(date: date) ||
-            isEndDate(date: date) ||
-            isOneOfSelectedDates(date: date)
+            isEndDate(date: date)
     }
-    
+    func isHasEventDate(date: Date) -> Bool {
+        return isOneOfSelectedDates(date: date)
+            
+    }
     func isOneOfSelectedDates(date: Date) -> Bool {
         return self.rkManager.selectedDatesContains(date: date)
     }

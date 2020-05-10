@@ -17,13 +17,14 @@ struct RKDate {
     var isToday: Bool = false
     var isSelected: Bool = false
     var isBetweenStartAndEnd: Bool = false
-    
-    init(date: Date, rkManager: RKManager, isDisabled: Bool, isToday: Bool, isSelected: Bool, isBetweenStartAndEnd: Bool) {
+    var hasEvent: Bool = false
+    init(date: Date, rkManager: RKManager, isDisabled: Bool, isToday: Bool, isSelected: Bool, isBetweenStartAndEnd: Bool, hasEvent: Bool) {
         self.date = date
         self.rkManager = rkManager
         self.isDisabled = isDisabled
         self.isToday = isToday
         self.isSelected = isSelected
+        self.hasEvent = hasEvent
         self.isBetweenStartAndEnd = isBetweenStartAndEnd
     }
     
@@ -42,6 +43,8 @@ struct RKDate {
             textColor = rkManager.colors.todayColor
         } else if isBetweenStartAndEnd {
             textColor = rkManager.colors.betweenStartAndEndColor
+        }else if hasEvent {
+            textColor = rkManager.colors.textColor
         }
         return textColor
     }
@@ -59,6 +62,8 @@ struct RKDate {
         }
         if isSelected {
             backgroundColor = rkManager.colors.selectedBackColor
+        }else if hasEvent {
+            backgroundColor = rkManager.colors.textBackColor
         }
         return backgroundColor
     }
@@ -72,6 +77,8 @@ struct RKDate {
         } else if isToday {
             fontWeight = Font.Weight.heavy
         } else if isBetweenStartAndEnd {
+            fontWeight = Font.Weight.heavy
+        }else if hasEvent {
             fontWeight = Font.Weight.heavy
         }
         return fontWeight

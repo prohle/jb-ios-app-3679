@@ -7,8 +7,10 @@
 //
 
 import SwiftUI
+import KeychainAccess
 
 struct AccountMenus: View {
+    
     @EnvironmentObject var viewRouter: ViewRouter
     var body: some View {
         NavigationView {
@@ -89,6 +91,25 @@ struct AccountMenus: View {
                         },
                         label: {
                             IconText(imageIconLeft:"Artboard 96",text:"Help",iconLeftSize:24,spacing: 8,fontz: Font.textbody)
+                        }
+                    )
+                    Button(
+                        action:{
+                            let keychain = Keychain(service: "ISOWEB.JouleBookUI")
+                            do {
+                                try keychain.set("", key: "access_token")
+                                try keychain.set("", key: "refresh_token")
+                                try keychain.set("", key: "current_lat")
+                                try keychain.set("", key: "current_lon")
+                                self.viewRouter.loggedIn = false
+                                self.viewRouter.currentPage = "signin"
+                            }
+                            catch let error {
+                                print(error)
+                            }
+                        },
+                        label: {
+                            NormalButton(btnText: "Logout",fontSize: .texttitle, textColor: Color.main, borderColor: Color.main, paddingH: CGFloat(5.00),paddingV: CGFloat(5.00),radius: CGFloat(5.00)).frame(maxWidth: .infinity)
                         }
                     )
                 }.padding(.horizontal,15)

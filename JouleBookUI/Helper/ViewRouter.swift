@@ -8,10 +8,10 @@
 
 import Foundation
 import SwiftUI
+import CoreLocation
 import Combine
 
-class ViewRouter: ObservableObject {
-
+class ViewRouter: NSObject,ObservableObject {
     let objectWillChange = PassthroughSubject<ViewRouter,Never>()
     var objectId: Int = -1{
         didSet {
@@ -20,7 +20,7 @@ class ViewRouter: ObservableObject {
             }
         }
     }
-    
+    var dealObj: DealDetailObj = DealDetailObj() 
     var isActived : Bool = true{
         didSet {
             withAnimation() {
@@ -50,6 +50,7 @@ class ViewRouter: ObservableObject {
         }
     }
     
+    
     /*@Published var login: Bool = false
     var loggedIn: Bool {
         didSet {
@@ -58,3 +59,4 @@ class ViewRouter: ObservableObject {
         }
     }*/
 }
+

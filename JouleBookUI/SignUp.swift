@@ -5,10 +5,10 @@
 //  Created by Pham Van Mong on 2/14/20.
 //  Copyright © 2020 Pham Van Mong. All rights reserved.
 //
-
+//https://blog.supereasyapps.com/how-to-fix-iphone-and-ipad-app-codesign-crashes-using-an-apple-developer-profile/
 import SwiftUI
 struct SignUp: View {
-    @ObservedObject private var userViewModel = UserViewModel()
+    @ObservedObject private var userViewModel = UserViewModel(from: "signup")
     @EnvironmentObject var viewRouter: ViewRouter
     //@EnvironmentObject var settings: UserSettings
     var body: some View {
@@ -31,14 +31,14 @@ struct SignUp: View {
             Button(action: {
                 self.viewRouter.currentPage = "phoneverification"
             }) {
-                BasicButton(btnText:"Sign up",imageName: nil,isActive: true)
-            }.disabled(!userViewModel.isValid)
+                BasicButton(btnText:"Sign up",imageName: nil,isActive: userViewModel.isValid)
+            }.disabled(!userViewModel.isValid).frame(height: CGFloat.btnHeight)
             Button(
                 action: {
                     self.viewRouter.currentPage = "signin"
                 }
                 ){
-                    Text("Already have account ?").font(.textsmall).fontWeight(.regular).foregroundColor(Color.subtext) + Text(" Sign in").font(.footnote).foregroundColor(Color.textlink)
+                    Text("Already have account ?").font(.textsmall).fontWeight(.regular).foregroundColor(Color.subtext) + Text(" Sign in").font(.textbody).foregroundColor(Color.textlink)
             }
             /*ZStack {
                 BasicButton(btnText:"Sign up",imageName: nil,isActive: true)

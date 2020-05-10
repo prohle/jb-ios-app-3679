@@ -8,29 +8,65 @@
 
 import SwiftUI
 struct VehicleItemRowViewOnly: View {
-    var licenseObj: ProviderLicense
-    static let taskDateFormat: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM-DD-YYYY"
-        return formatter
-    }()
+    var vehicleObj: ProviderVehicle
     var body: some View {
         HStack{
-            TextBold(text: self.licenseObj.licenseName,color: Color.textlink).frame(width:CGFloat((UIScreen.main.bounds.width * 33) / 100))
-            TextBold(text: self.licenseObj.licenseNumber,color: Color.maintext).frame(width:CGFloat((UIScreen.main.bounds.width * 22) / 100))
-            TextBold(text: self.licenseObj.state,color: Color.maintext).frame(width:CGFloat((UIScreen.main.bounds.width * 22) / 100))
-            TextBold(text: self.licenseObj.expirationDate,color: Color.maintext).frame(width:CGFloat((UIScreen.main.bounds.width * 22) / 100))
+            TextBold(text: self.vehicleObj.car_make,color: Color.maintext)
+            Spacer()
+            TextBold(text: "\(self.vehicleObj.model) | \(self.vehicleObj.color) - \(self.vehicleObj.plate_number)",color: Color.maintext)
+        }
+    }
+}
+struct VehicleItemRow: View {
+    var vehicleObj: ProviderVehicle
+    @Binding var showSheet: Bool
+    @Binding var editVehicleObj: ProviderVehicle
+    var body: some View {
+        VStack{
+            HStack(alignment: .firstTextBaseline,spacing:10){
+              TextBody(text: vehicleObj.car_make)
+              Spacer()
+              TextBody(text: vehicleObj.model+" | "+vehicleObj.color+" - "+vehicleObj.plate_number)
+            }.padding([.vertical],10)
+            HorizontalLine(color: .border)
+        }.onTapGesture {
+            self.showSheet.toggle()
+            self.editVehicleObj = self.vehicleObj
         }
     }
 }
 struct Vehicles: View {
+    @EnvironmentObject var userObserved: UserProfileObserver
+    @State var editVehicleObj: ProviderVehicle = ProviderVehicle()
+    @State var showSheet: Bool = false
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+           // List{
+            if(self.userObserved.vehicleObjs.count > 0){
+                ForEach(self.userObserved.vehicleObjs) { vehicleObj in
+                    VehicleItemRow(vehicleObj: vehicleObj,showSheet: self.$showSheet,editVehicleObj: self.$editVehicleObj)
+                }
+            }
+            Button(action:{},label: {
+                HStack{
+                    TextBold(text:"Add a new Vehicle")
+                    Spacer()
+                    Image(systemName: "plus").resizable().frame(width: 18,height: 18)
+                }
+            }).onTapGesture {
+                self.editVehicleObj = ProviderVehicle()
+                self.showSheet.toggle()
+            }
+            Spacer()
+        }.sheet(isPresented: $showSheet) {
+            AddVehicleForm(vehicleObj: self.$editVehicleObj ,showSheet: self.$showSheet)
+        }
     }
+    
 }
-
+/*
 struct Vehicles_Previews: PreviewProvider {
     static var previews: some View {
         Vehicles()
     }
-}
+}*/

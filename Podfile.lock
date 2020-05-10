@@ -1,62 +1,43 @@
 PODS:
-  - Alamofire (5.0.2)
-  - KeychainAccess (4.1.0)
-  - Mantis (1.0.0)
+  - Alamofire (5.1.0)
+  - GoogleMaps (3.8.0):
+    - GoogleMaps/Maps (= 3.8.0)
+  - GoogleMaps/Base (3.8.0)
+  - GoogleMaps/Maps (3.8.0):
+    - GoogleMaps/Base
+  - GooglePlaces (3.8.0):
+    - GoogleMaps/Base (= 3.8.0)
   - Navajo-Swift (2.1.0)
-  - RxBlocking (5.1.0):
-    - RxSwift (~> 5)
-  - RxCocoa (5.1.0):
-    - RxRelay (~> 5)
-    - RxSwift (~> 5)
-  - RxRelay (5.1.0):
-    - RxSwift (~> 5)
-  - RxSwift (5.1.0)
-  - RxTest (5.1.0):
-    - RxSwift (~> 5)
-  - Squid (1.2.0)
+  - Stripe (19.2.0)
   - SwiftyRSA (1.5.0):
     - SwiftyRSA/ObjC (= 1.5.0)
   - SwiftyRSA/ObjC (1.5.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 5.0)
-  - KeychainAccess
-  - Mantis (~> 1.0.0)
+  - Alamofire (~> 5.1)
+  - GoogleMaps
+  - GooglePlaces
   - Navajo-Swift
-  - RxBlocking (~> 5)
-  - RxCocoa (~> 5)
-  - RxSwift (~> 5)
-  - RxTest (~> 5)
-  - Squid
+  - Stripe
   - SwiftyRSA
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
-    - KeychainAccess
-    - Mantis
+    - GoogleMaps
+    - GooglePlaces
     - Navajo-Swift
-    - RxBlocking
-    - RxCocoa
-    - RxRelay
-    - RxSwift
-    - RxTest
-    - Squid
+    - Stripe
     - SwiftyRSA
 
 SPEC CHECKSUMS:
-  Alamofire: 3ba7a4db18b4f62c4a1c0e1cb39d7f3d52e10ada
-  KeychainAccess: 445e28864fe6d3458b41fa211bcdc39890e8bd5a
-  Mantis: 939d129f6ca1918736d057e15b8aeedf4ee4f60d
+  Alamofire: 9d5c5f602928e512395b30950c5984eca840093c
+  GoogleMaps: 7c8d66d70e4e8c300f43a7219d8fdaad7b325a9a
+  GooglePlaces: d5f70c3e9e427964fdeca1301a665d276ccd8754
   Navajo-Swift: 57b93e73efbfbf452433efbff04402de56beff51
-  RxBlocking: 5ef131267220f92ef68531dd6afeaf407cd6b41a
-  RxCocoa: 13d2a4d7546a34b8ececae8c281e4ea1dbb94f2b
-  RxRelay: a168bd6caf712d00c676ac344e9295afc93b418e
-  RxSwift: ad5874f24bb0dbffd1e9bb8443604e3578796c7a
-  RxTest: d5e1c9c1880de2751041fa485d476ce006967b31
-  Squid: 731bcb1956443d07d767e12532c72e4757f50a01
+  Stripe: d481c2dab9a892fd923f097f854661217f70dc7f
   SwiftyRSA: 6e528fb1b1a87d5111c48081083b141d6d65f1cf
 
-PODFILE CHECKSUM: a809c6a2fb1dc2f0add69dd78fdc7f0e93a27012
+PODFILE CHECKSUM: 0e885ba03eefed52a9f8cf80d734b9fbe45acb7c
 
 COCOAPODS: 1.8.4

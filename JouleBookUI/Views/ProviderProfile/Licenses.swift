@@ -9,8 +9,25 @@
 import SwiftUI
 import Alamofire
 import KeychainAccess
+struct LicenseItemRowViewOnly: View {
+    var licenseObj: ProviderLicense
+    static let taskDateFormat: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM-DD-YYYY"
+        return formatter
+    }()
+    var body: some View {
+        HStack{
+            TextBold(text: self.licenseObj.license_name ?? "",color: Color.textlink).frame(width:CGFloat((UIScreen.main.bounds.width * 33) / 100))
+            TextBold(text: self.licenseObj.license_number ?? "",color: Color.maintext).frame(width:CGFloat((UIScreen.main.bounds.width * 22) / 100))
+            TextBold(text: self.licenseObj.state ?? "",color: Color.maintext).frame(width:CGFloat((UIScreen.main.bounds.width * 22) / 100))
+            TextBold(text: self.licenseObj.expiration_date ?? "",color: Color.maintext).frame(width:CGFloat((UIScreen.main.bounds.width * 22) / 100))
+        }
+    }
+}
 struct LicensesViewOnly: View {
-    @Binding var licenseObjs:[ProviderLicense]
+    @EnvironmentObject var viewRouter: ViewRouter
+    @State var licenseObjs:[ProviderLicense]
     var body: some View {
         VStack{
             HStack{
@@ -19,73 +36,72 @@ struct LicensesViewOnly: View {
                 TextBold(text: "County - State",color: Color.maintext).frame(width:CGFloat((UIScreen.main.bounds.width * 22) / 100))
                 TextBold(text: "Expiration Date",color: Color.maintext).frame(width:CGFloat((UIScreen.main.bounds.width * 22) / 100))
             }
-            ForEach(licenseObjs) { licenseObj in
-                LicenseItemRowViewOnly(licenseObj: licenseObj)
-                HorizontalLine(color: .border)
+            if(self.licenseObjs.count > 0){
+                ForEach(self.licenseObjs) { licenseObj in
+                    LicenseItemRowViewOnly(licenseObj: licenseObj)
+                    HorizontalLine(color: .border)
+                }
             }
+        }.onAppear(perform: {self.getLicenses()})
+    }
+    func getLicenses(){
+        
+    }
+}
+struct LicenseItemRow: View {
+    //@EnvironmentObject var viewRouter: ViewRouter
+    var licenseObj: ProviderLicense
+    @Binding var showSheet: Bool
+    @Binding var editLicenseObj: ProviderLicense
+    static let taskDateFormat: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM-DD-YYYY"
+        return formatter
+    }()
+    var body: some View {
+        HStack(spacing:10){
+            ImageUrlSameHeight(imageUrl:licenseObj.attach_1_url ?? "https://i1-vnexpress.vnecdn.net/2020/05/07/hocsinhjpg-1588827055-15888270-2855-2033-1588827076.jpg?w=680&h=408&q=100&dpr=1&fit=crop&s=nTQokr3b2-_96Er_rjXD5A",width: CGFloat((UIScreen.main.bounds.width * 25) / 100))
+            TextBold(text: licenseObj.license_name ?? "")
+            Spacer()
+            TextBody(text: self.licenseObj.expiration_date?.utcDateStrToDate().toLocalDateStr() ?? "")
+        }.padding([.vertical],5)
+        .onTapGesture {
+            self.editLicenseObj = self.licenseObj
+            self.showSheet.toggle()
         }
     }
 }
 struct Licenses: View {
-    @Binding var licenseObjs:[ProviderLicense]
-    @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var userObserved: UserProfileObserver
+    //@State var licenseObjs:[ProviderLicense] = [ProviderLicense]()
+    //@EnvironmentObject var viewRouter: ViewRouter
+    @State var showSheet: Bool = false
+    @State var editLicenseObj: ProviderLicense = ProviderLicense()
     var body: some View {
         VStack{
-            HStack{
-              TextBold(text: "Licenses",color: Color.main)
-                 Spacer()
-             }.padding(CGFloat.stVpadding).background(Color.mainback)
-           // List{
-            ForEach(licenseObjs) { licenseObj in
-                LicenseItemRow(licenseObj: licenseObj).environmentObject(self.viewRouter)
-                HorizontalLine(color: .border)
+            if(self.userObserved.licenseObjs.count > 0){
+                ForEach(self.userObserved.licenseObjs) { licenseObj in
+                    LicenseItemRow(licenseObj: licenseObj, showSheet: self.$showSheet, editLicenseObj: self.$editLicenseObj)
+                    HorizontalLine(color: .border)
+                }
             }
-            Button(action:{
-                self.viewRouter.currentPage = "editlicenseform"
-                self.viewRouter.objectId = -1
-                //self.presentForm = true
-                //self.licenseObjs.append(ProviderLicense(id: 6,state: "ste", licenseNumber: "12345", licenseName: "Test", expirationDate: "2019-12-07 00:00:00", description: ""))
-            },label: {
+            Button(action:{},label: {
                 HStack{
                     TextBold(text:"Add a new License")
                     Spacer()
                     Image(systemName: "plus").resizable().frame(width: 18,height: 18)
                 }
-                //HorizontalLine(color: .border)
-            })
-            //}.frame(height: CGFloat( licenseObjs.count * 50))
-            Spacer()
-        }.onAppear(perform: loadLicenses)
-        /*.sheet(isPresented: $presentForm) {
-            EditLicenseForm()
-        }*/
-    }
-    private func loadLicenses() {
-        let keychain = Keychain(service: "ISOWEB.JouleBookUI")
-        let interceptor = RequestInterceptor(storage: keychain, viewrouter: viewRouter)
-        AF.request("https://api-gateway.joulebook.com/api-gateway/user/v1.0/users/licenses",
-        method: .get,
-        //parameters: {},
-        //encoder: JSONParameterEncoder.default,
-        interceptor: interceptor
-        
-        ).validate(statusCode: 200..<300)
-        .validate(contentType: ["application/json"])
-        .responseJSON{response in
-            switch response.result{
-            case .failure(let f):
-                self.viewRouter.currentPage = "home"
-                //debugPrint(response)
-                break
-            case .success(let s):
-                print(">> SUCCESS: ",s)
-                debugPrint(response)
-                break
+            }).onTapGesture {
+                self.editLicenseObj = ProviderLicense()
+                self.showSheet.toggle()
             }
+            Spacer()
+        }.sheet(isPresented: $showSheet) {
+            AddLicenseForm(licenseObj: self.$editLicenseObj,showSheet: self.$showSheet)
         }
     }
+    
 }
-
 /*
  https://www.hackingwithswift.com/books/ios-swiftui/importing-an-image-into-swiftui-using-uiimagepickercontroller
  https://www.iosapptemplates.com/blog/swiftui/photo-camera-swiftui

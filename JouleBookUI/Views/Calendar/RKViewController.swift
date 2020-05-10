@@ -17,9 +17,9 @@ struct RKViewController: View {
             HStack{
                 Spacer()
                 Button(action: {
-                    //if(self.monthIndex > 0 ) {
+                    if(self.monthIndex > 0 ) {
                         self.monthIndex -= 1
-                    //}
+                    }
                 }){
                     Image(systemName: "chevron.left.square").resizable().accentColor(Color.main).frame(width:24,height: 24)
                 }.onTapGesture {

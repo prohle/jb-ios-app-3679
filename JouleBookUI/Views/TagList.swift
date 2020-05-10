@@ -40,22 +40,26 @@ struct TagList: View {
                         HStack{
                             TextField(self.placeHolder ?? "Insert your tags",text: self.$stringTag)
                             Spacer()
-                            Button(
-                                action:{
-                                    if self.allTags.contains(self.stringTag) {
-                                        self.allTags.remove(self.stringTag)
-                                    } else {
-                                        self.allTags.insert(self.stringTag)
+                            Button(action:{}){
+                                Image("Artboard 91")
+                                .resizable()
+                                .accentColor(Color.main)
+                                .frame(width: 20,height: 20)
+                            }.onTapGesture {
+                                if self.allTags.contains(self.stringTag) {
+                                    self.stringTag = ""
+                                    //self.allTags.remove(self.stringTag)
+                                } else {
+                                    if !self.stringTag.isEmpty {
+                                        let realTag = self.stringTag.trimmingCharacters(in: .whitespacesAndNewlines)
+                                        if !realTag.isEmpty {
+                                            self.allTags.insert(self.stringTag)
+                                            self.saveSkillTag(tag: self.stringTag)
+                                        }
                                     }
                                     self.stringTag = ""
-                                    
-                            },
-                                label:{
-                                    Image("Artboard 91")
-                                        .resizable()
-                                        .accentColor(Color.main)
-                                        .frame(width: 20,height: 20)
-                            })
+                                }
+                            }
                         }
                     }
                     //GeometryReader { geometry in
@@ -74,13 +78,11 @@ struct TagList: View {
                 }
         
     }
-}
-/*
-struct TagList_Previews: PreviewProvider {
-    static var previews: some View {
-        TagList(allTags: Set<String>(), selectedTags: Set<String>())//.constant(["two"])
+    func saveSkillTag(tag: String){
+        let skillObj = ProviderSkills(skill_name: tag)
+        skillObj.saveSkill()
     }
-}*/
+}
 
 extension String {
     func widthOfString(usingFont font: UIFont) -> CGFloat {
@@ -125,14 +127,7 @@ struct TagButton: View {
     private let radius: CGFloat = 5
     var editable: Bool = true
     var body: some View {
-        Button(action: {
-            if self.selectedTags.contains(self.title) {
-                self.selectedTags.remove(self.title)
-                self.allTags.remove(self.title)
-            } else {
-                self.selectedTags.insert(self.title)
-            }
-        }) {
+        Button(action: {}) {
             if self.editable == true && self.selectedTags.contains(self.title) {
                 ZStack(alignment:.topTrailing) {
                     Text(title)
@@ -169,6 +164,17 @@ struct TagButton: View {
                         .stroke(Color.gray, lineWidth: 1)
                 )
             }
+        }.onTapGesture {
+            if self.selectedTags.contains(self.title) {
+                self.selectedTags.remove(self.title)
+                self.allTags.remove(self.title)
+                
+            } else {
+                self.selectedTags.insert(self.title)
+            }
         }
+    }
+    func delSkillTag(tag: String){
+        
     }
 }

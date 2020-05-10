@@ -8,16 +8,17 @@
 
 import SwiftUI
 import ClockTimePicker
+import AMPopTip
 struct TimeSlots: View {
     @Binding var allSlots: [Date]
+    @Binding var duration: Double
     var parentWidth: CGFloat
-    
     //private var orderedTags: [Date] { allSlots.sorted() }
     //@Binding var teststate: CGFloat
     private func rowCounts() -> [Int] {
         TimeSlots.rowCounts(tags: self.allSlots, padding: 5, parentWidth: parentWidth)
     }
-    private func tagslot(rowCounts: [Int], rowIndex: Int, itemIndex: Int) -> Date {
+    private func tagslot(rowCounts: [Int], rowIndex: Int, itemIndex: Int) -> Binding<Date> {
         let sumOfPreviousRows = rowCounts.enumerated().reduce(0) { total, next in
             if next.offset < rowIndex {
                 return total + next.element
@@ -26,8 +27,8 @@ struct TimeSlots: View {
             }
         }
         let orderedTagsIndex = sumOfPreviousRows + itemIndex
-        guard self.allSlots.count > orderedTagsIndex else { return Date() }
-        return self.allSlots[orderedTagsIndex]
+       // guard self.allSlots.count > orderedTagsIndex else { return Date() }
+        return self.$allSlots[orderedTagsIndex]
     }
 
     var body: some View {
@@ -61,7 +62,7 @@ struct TimeSlots: View {
                         HStack (spacing: 10){
                             Spacer()
                             ForEach(0 ..< self.rowCounts()[rowIndex], id: \.self) { itemIndex in
-                                TimeSlotButton( dateSlot: self.tagslot(rowCounts: self.rowCounts(), rowIndex: rowIndex, itemIndex: itemIndex), allSlots: self.$allSlots)
+                                TimeSlotButton( dateSlot: self.tagslot(rowCounts: self.rowCounts(), rowIndex: rowIndex, itemIndex: itemIndex), allSlots: self.$allSlots, duration: self.$duration)
                             }
                             Spacer()
                         }.padding(.vertical, 5)
@@ -70,13 +71,6 @@ struct TimeSlots: View {
             
         }
         //.onAppear(perform: loadDemoDatas)
-    }
-    func getDateFromString(dateStr: String) -> Date {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "YYYY-MM-DD hh:mm a "
-        formatter.amSymbol = "AM"
-        formatter.pmSymbol = "PM"
-        return formatter.date(from: dateStr)!
     }
 }
 extension TimeSlots {
@@ -119,29 +113,35 @@ final class SelectionChange: ObservableObject {
     
 }*/
 struct TimeSlotButton: View {
-    //@State var dateStr: String
-    //@ObservedObject var value = SelectionChange()
-    @State var dateSlot: Date
+    @Binding var dateSlot: Date
     @Binding var allSlots: [Date]
+    @Binding var duration: Double
     @State var showActionSheet: Bool = false
     private let vPad: CGFloat = 5
     private let hPad: CGFloat = 10
     private let radius: CGFloat = 5
-    /*static let taskDateFormat: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm"
-        return formatter
-    }()*/
     var canEdit: Bool = true
     var body: some View {
-        ZStack {
-            Button(action: {
+        //ZStack {
+            /*Button(action: {
                 //self.showActionSheet = true
             }) {
-                TextBody(text: self.getDateString())
-            }.onTapGesture {
+         (self.dateSlot.checkTimeSlotDuration(ortherSlots: self.allSlots, duration: self.duration) == true) ?  self.dateSlot.toLocalTimeStr() : "Error"
+         */
+                TextBody(text: self.dateSlot.toLocalTimeStr() )
+                    .padding(4)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: radius)
+                            .stroke(Color.border, lineWidth: 1)
+                    )
+                    .onTapGesture {
+                   self.showActionSheet = true
+                }.sheet(isPresented: $showActionSheet) {
+                    ModalTimePicker(timeslot: self.$dateSlot,showActionSheet: self.$showActionSheet)
+                }
+            /*}.onTapGesture {
                self.showActionSheet = true
-            }
+            }*/
             /*DatePicker("Select Date",selection: $dateSlot ,  displayedComponents: .hourAndMinute)
                 .font(.textbody)
                 .labelsHidden()
@@ -157,7 +157,7 @@ struct TimeSlotButton: View {
             }
              
              */
-        }.foregroundColor(.maintext)
+        /*}.foregroundColor(.maintext)
         .padding(5)
         .background(Color.white)
         .cornerRadius(radius)
@@ -166,31 +166,26 @@ struct TimeSlotButton: View {
                 .stroke(Color.border, lineWidth: 1)
         )
         .sheet(isPresented: $showActionSheet) {
-            ModalTimePicker(date: self.$dateSlot,showActionSheet: self.$showActionSheet)
-        }
-    }
-    func getDateString() -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "h:mm a "
-        formatter.amSymbol = "AM"
-        formatter.pmSymbol = "PM"
-        return formatter.string(from: dateSlot)
+            ModalTimePicker(timeslot: self.$dateSlot,showActionSheet: self.$showActionSheet)
+        }*/
     }
 }
 struct ModalTimePicker: View {
-    @Binding var date: Date
+    @Binding var timeslot: Date
     @Binding var showActionSheet: Bool
     @State var showTime = false
     @ObservedObject var options = ClockLooks()
     
     var body: some View {
         VStack{
-            ClockPickerView(date: self.$date, options: self.options)
+            ClockPickerView(date: self.$timeslot, options: self.options)
             Spacer()
             Button(action:{
+                debugPrint("Date Did selected",self.timeslot," -> ",self.timeslot.toLocalDateTimeStr(), " -> ",self.timeslot.toLocalTimeStr())
                 self.showActionSheet = false
+                
             }){
-                Text("Done")
+                TextBody(text: "Done")
             }
         }.onAppear(perform: loadOptions)
     }

@@ -5,15 +5,22 @@ target 'JouleBookUI' do
   # Comment the next line if you don't want to use dynamic frameworks
   source 'https://github.com/CocoaPods/Specs.git'
   platform :ios, '13.0'
+ # inhibit_all_warnings!
+#  use_modular_headers!
   use_frameworks!  
-  pod 'Navajo-Swift'
-  pod 'Alamofire', '~> 5.0'
-  pod 'RxSwift', '~> 5'
-  pod 'RxCocoa', '~> 5'
-  pod 'Squid'
-  pod 'KeychainAccess'
+#use_modular_headers! 
+# pod 'AlamofireObjectMapper', '~> 5.2'
+ pod 'GoogleMaps'
+ pod 'GooglePlaces'
+ pod 'Navajo-Swift'
+ pod 'Alamofire', '~> 5.1'
+ pod 'Stripe'
+#  pod 'RxSwift', '~> 5'
+ # pod 'RxCocoa', '~> 5'
+#  pod 'Squid'
+#  pod 'KeychainAccess'
   pod 'SwiftyRSA'
-  pod 'Mantis', '~> 1.0.0'
+ # pod 'Mantis', '~> 1.0.0'
 #  pod "BSImagePicker", "~> 3.1"
 #  pod "Macaw", "0.9.5"
  # pod 'Stripe' 
@@ -24,8 +31,8 @@ target 'JouleBookUI' do
   end
 
   target 'JouleBookUIUITests' do
-    pod 'RxBlocking', '~> 5'
-    pod 'RxTest', '~> 5'  
+  #  pod 'RxBlocking', '~> 5'
+   # pod 'RxTest', '~> 5'  
   # Pods for testing
   end
 

@@ -9,20 +9,21 @@
 import SwiftUI
 struct TextBody: View {
     var text: String
-    var align: TextAlignment?
+    var align: HorizontalAlignment?
     var color: Color?
     var font: Font?
     var body: some View {
         Text(text)
             .font((font != nil ) ? font : Font.textbody)
         .foregroundColor((color != nil ) ? color! : Color.maintext)
-        .multilineTextAlignment((align != nil ) ? align! : .leading)
+            .alignmentGuide(self.align ?? .leading) { d in d[self.align ?? .leading] }
+        //.multilineTextAlignment((align != nil ) ? align! : .leading)
         .foregroundColor(Color.maintext)
     }
 }
 struct TextBold: View {
     var text: String
-    var align: TextAlignment?
+    var align: HorizontalAlignment?
     var color: Color?
     var font: Font?
     var body: some View {
@@ -30,7 +31,8 @@ struct TextBold: View {
         .bold()
         .font((font != nil ) ? font : Font.textbody)
         .foregroundColor((color != nil ) ? color! : Color.maintext)
-        .multilineTextAlignment((align != nil ) ? align! : .leading)
+            .alignmentGuide(self.align ?? .leading) { d in d[self.align ?? .leading] }
+        //.multilineTextAlignment((align != nil ) ? align! : .leading)
         .foregroundColor(Color.maintext)
     }
 }

@@ -13,6 +13,7 @@ extension Font{
     public static let textheader = Font.system(size: 23)
     public static let texttitle = Font.system(size: 18)
     public static let textsmall = Font.system(size: 11)
+    public static let bighomereport = Font.system(size: 30)
 }
 /*
 extension UIFont.TextStyle{

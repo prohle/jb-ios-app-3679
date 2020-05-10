@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "AMPopTip",
+        "repositoryURL": "https://github.com/andreamazz/AMPopTip.git",
+        "state": {
+          "branch": null,
+          "revision": "2160338b7940a20ee0e2907c386514c8bf8c3c04",
+          "version": "4.5.0"
+        }
+      },
+      {
         "package": "ClockTimePicker",
         "repositoryURL": "https://github.com/workingDog/ClockTimePicker.git",
         "state": {
@@ -11,12 +20,30 @@
         }
       },
       {
+        "package": "KeychainAccess",
+        "repositoryURL": "https://github.com/kishikawakatsumi/KeychainAccess.git",
+        "state": {
+          "branch": null,
+          "revision": "b920ad7df3c73189dcdd4aa05c540849b2010dbf",
+          "version": "4.1.0"
+        }
+      },
+      {
+        "package": "Mantis",
+        "repositoryURL": "https://github.com/guoyingtao/Mantis.git",
+        "state": {
+          "branch": null,
+          "revision": "b5c0dcbf366b1390274a3d8092faa2725e02dc35",
+          "version": "1.0.0"
+        }
+      },
+      {
         "package": "URLImage",
         "repositoryURL": "https://github.com/dmytro-anokhin/url-image.git",
         "state": {
           "branch": null,
-          "revision": "dc913391b6fc0c9de283ef111eb90d0e9abf4c36",
-          "version": "0.9.10"
+          "revision": "44b17289d8eb7db78eefbcf7bafa8cf2221b2a2b",
+          "version": "0.9.13"
         }
       }
     ]

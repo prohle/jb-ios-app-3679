@@ -7,7 +7,9 @@
 //
 
 import UIKit
-
+import GoogleMaps
+import GooglePlaces
+import Stripe
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -15,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        GMSServices.provideAPIKey("AIzaSyCClH3oApySLIL0v6_80BmQYoV4KhVrHcI")
+        GMSPlacesClient.provideAPIKey("AIzaSyCClH3oApySLIL0v6_80BmQYoV4KhVrHcI")
+        Stripe.setDefaultPublishableKey("pk_test_RRim8foJWm0Esp3yjoHoYiGq00mOftEbda")
         return true
     }
 

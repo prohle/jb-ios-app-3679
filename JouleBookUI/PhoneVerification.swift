@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct PhoneVerification: View {
-    @ObservedObject private var userViewModel = UserViewModel()
+    @ObservedObject private var userViewModel = UserViewModel(from: "phoneverify")
     @State var presentAlert = false
     @EnvironmentObject var viewRouter: ViewRouter
     var body: some View {
@@ -18,11 +18,11 @@ struct PhoneVerification: View {
                 Text("Phone Verification").font( .headline).padding([.bottom],20)
                 HStack{
                     Spacer()
-                    Text("Sign Up").font(.footnote).foregroundColor(Color.maintext)
+                    Text("Sign Up").font(.textsmall).foregroundColor(Color.maintext)
                     Spacer()
-                Text("Authenticate").font(.footnote).foregroundColor(Color.maintext)
+                Text("Authenticate").font(.textsmall).foregroundColor(Color.maintext)
                     Spacer()
-                    Text("Complete").font(.footnote).foregroundColor(Color.placeholder)
+                    Text("Complete").font(.textsmall).foregroundColor(Color.placeholder)
                     Spacer()
                 }
                 HStack{
@@ -40,46 +40,38 @@ struct PhoneVerification: View {
                     .cornerRadius(5)
                     Spacer()
                 }.padding([.vertical],10)
-                Section(footer: Text(userViewModel.usernameMessage).foregroundColor(.red)) {
+                Section(footer: Text(userViewModel.phoneMessage).foregroundColor(.main)) {
                     ZStack(alignment: .init(horizontal: .trailing, vertical: .top)){
-                        TextField("Phone number", text: $userViewModel.userName)
+                        TextField("Phone number", text: $userViewModel.mobile_number)
                             .autocapitalization(.none)
                             .padding(2)
-                        SmallTextLink(text:"Send SMS")
+                        TextBody(text:"Send SMS",color: (self.userViewModel.isPhoneValid == true) ? Color.textlink : Color.placeholder, font: Font.textsmall).onTapGesture {
+                            self.userViewModel.sendOtpRequest()
+                        }
                     }
                     HorizontalLine(color: .main)
                 }
                 
-                Section(footer: Text(userViewModel.passwordMessage).foregroundColor(.red)) {
-                    
-                    SecureField("Password", text: $userViewModel.password)
+                Section(footer: Text(userViewModel.otpMessage).foregroundColor(.red)) {
+                    SecureField("Verification code", text: $userViewModel.otp_code)
                     .padding(2)
                     HorizontalLine(color: .main)
-                    //SecureField("Confirm Password", text: $userViewModel.confirmPassword)
                 }
                 
                 Section {
-                
-                    //HStack(alignment: .center) {
-                        Button(action: {
-                            self.viewRouter.currentPage = "deals"
-                        }) {
-                            BasicButton(btnText:"Complete",imageName: nil,isActive: false)
-                            //Text("Sign up")
+                    BasicButton(btnText:"Complete",imageName: nil,isActive: (self.userViewModel.isPhoneValid && !userViewModel.otp_code.isEmpty)).onTapGesture {
+                        if self.userViewModel.isPhoneValid && !self.userViewModel.otp_code.isEmpty {
+                            self.userViewModel.otpVerificationRequest(viewRouter: self.viewRouter)
+                            //self.viewRouter.currentPage = "deals"
                         }
-                        .disabled(!userViewModel.isValid)
-                    //}.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
+                    }
                 }
                 
                 HStack(alignment: .firstTextBaseline) {
-                    Text("Didnt received the code?").font(.footnote).fontWeight(.regular).foregroundColor(Color.subtext)
-                    Button(action: {
-                        self.Print("OK")
-                        //self.signIn()
-                    }) {
-                        SmallTextLink(text:" Resend code")
+                    Text("Didnt received the code?").font(.textsmall).fontWeight(.regular).foregroundColor(Color.subtext)
+                    TextBody(text:"Resend code",color: (self.userViewModel.isPhoneValid == true) ? Color.textlink : Color.placeholder, font: Font.textsmall).onTapGesture {
+                        self.userViewModel.reSendOtpRequest()
                     }
-                    
                     Spacer()
                 }.padding([.vertical],10)
                 Spacer()

@@ -28,12 +28,18 @@ struct Candidate: Identifiable,Hashable, Codable{
     var topSkills: [String] = []
     var aboutUs: String = ""
     var location: String = ""
-    var licenseObjs: [ProviderLicense] = []
+    //var licenseObjs: [ProviderLicense] = []
     var vehicleObjs: [ProviderVehicle] = []
     var skillsOne: [ProviderSkills] = []
     var skillsTwo: [ProviderSkills] = []
     var skillsThree: [ProviderSkills] = []
     var skillsFour: [ProviderSkills] = []
+}
+extension Candidate{
+    init(){
+        id = -1
+        name = ""
+    }
 }
 struct SimpleCandidate: Identifiable,Hashable, Codable{
     var id:Int

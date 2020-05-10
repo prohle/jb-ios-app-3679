@@ -10,7 +10,7 @@ import SwiftUI
 import UIKit
 import URLImage
 struct ItemDealListRow: View {
-    
+    @EnvironmentObject var viewRouter: ViewRouter
     var dealObject: Deal
     var body: some View {
         //NavigationView{
@@ -42,7 +42,13 @@ struct ItemDealListRow: View {
                              //IconText(imageIconLeft:"app_icon",imageIconRight:"app_icon",text:"test",iconLeftSize:20,iconRightSize:10,paddingH:5)
                          }
                          Spacer()
-                         BasicButton(btnText:"Get Deal",imageName: nil,isActive: true,paddingH:CGFloat(1.00),paddingV:CGFloat(5.00),fontSize: Font.textsmall)
+                        Button(action: {
+                            self.viewRouter.objectId = self.dealObject.id
+                            self.viewRouter.currentPage = "dealdetail"
+                        }){
+                            BasicButton(btnText:"Get Deal",imageName: nil,isActive: true,paddingH:CGFloat(1.00),paddingV:CGFloat(5.00),fontSize: Font.textsmall).frame(height:32)
+                        }
+                        
                      }
                          
                  }.padding(5)
